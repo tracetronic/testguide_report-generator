@@ -1,0 +1,37 @@
+testguide\_report\_generator.model package
+==========================================
+
+Submodules
+----------
+
+testguide\_report\_generator.model.TestCase module
+--------------------------------------------------
+
+.. automodule:: testguide_report_generator.model.TestCase
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+testguide\_report\_generator.model.TestCaseFolder module
+--------------------------------------------------------
+
+.. automodule:: testguide_report_generator.model.TestCaseFolder
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+testguide\_report\_generator.model.TestSuite module
+---------------------------------------------------
+
+.. automodule:: testguide_report_generator.model.TestSuite
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: testguide_report_generator.model
+   :members:
+   :undoc-members:
+   :show-inheritance:

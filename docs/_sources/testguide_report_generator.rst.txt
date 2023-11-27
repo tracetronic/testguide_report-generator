@@ -1,0 +1,30 @@
+testguide\_report\_generator package
+====================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   testguide_report_generator.model
+   testguide_report_generator.util
+
+Submodules
+----------
+
+testguide\_report\_generator.ReportGenerator module
+---------------------------------------------------
+
+.. automodule:: testguide_report_generator.ReportGenerator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: testguide_report_generator
+   :members:
+   :undoc-members:
+   :show-inheritance:
