@@ -1,0 +1,76 @@
+{
+  "allowedLicenses": [
+    {
+      "moduleLicense": "MIT",
+      "moduleVersion": "23.1.0",
+      "moduleName": "attrs",
+      "licenseUrl": "https://github.com/python-attrs/attrs/blob/23.1.0/LICENSE",
+      "moduleCopyright": "Copyright (c) 2015 Hynek Schlawack and the attrs contributors",
+      "actualLicense": "MIT",
+      "violationAllowance": ""
+    },
+    {
+      "moduleLicense": "MIT",
+      "moduleVersion": "4.16.0",
+      "moduleName": "jsonschema",
+      "licenseUrl": "https://github.com/python-jsonschema/jsonschema/blob/v4.16.0/COPYING",
+      "moduleCopyright": "Copyright (c) 2013 Julian Berman",
+      "actualLicense": "MIT",
+      "violationAllowance": ""
+    },
+    {
+      "moduleLicense": "MIT",
+      "moduleVersion": "0.19.3",
+      "moduleName": "pyrsistent",
+      "licenseUrl": "https://github.com/tobgu/pyrsistent/blob/v0.19.2/LICENSE.mit",
+      "moduleCopyright": "Copyright (c) 2022 Tobias Gustafsson",
+      "actualLicense": "MIT",
+      "violationAllowance": ""
+    },
+    {
+      "moduleLicense": "Apache-2.0",
+      "moduleVersion": "6.7.0",
+      "moduleName": "importlib-metadata",
+      "licenseUrl": "https://github.com/python/importlib_metadata/blob/v6.7.0/LICENSE",
+      "moduleCopyright": "Jason R. Coombs and the contributors to the project",
+      "actualLicense": "Apache-2.0",
+      "violationAllowance": ""
+    },
+    {
+      "moduleLicense": "Apache-2.0",
+      "moduleVersion": "5.12.0",
+      "moduleName": "importlib-resources",
+      "licenseUrl": "https://github.com/python/importlib_resources/blob/v5.12.0/LICENSE",
+      "moduleCopyright": "Barry Warsaw and the contributors to the project",
+      "actualLicense": "Apache-2.0",
+      "violationAllowance": ""
+    },
+    {
+      "moduleLicense": "MIT",
+      "moduleVersion": "1.3.10",
+      "moduleName": "pkgutil-resolve-name",
+      "licenseUrl": "https://github.com/graingert/pkgutil-resolve-name/blob/default/LICENSE",
+      "moduleCopyright": "Copyright (c) 2020 Thomas Grainger",
+      "actualLicense": "MIT",
+      "violationAllowance": ""
+    },
+    {
+      "moduleLicense": "PSF-2.0",
+      "moduleVersion": "4.7.1",
+      "moduleName": "typing-extensions",
+      "licenseUrl": "https://github.com/python/typing_extensions/blob/4.7.1/LICENSE",
+      "moduleCopyright": "Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022 Python Software Foundation; All Rights Reserved",
+      "actualLicense": "PSF-2.0",
+      "violationAllowance": ""
+    },
+    {
+      "moduleLicense": "MIT",
+      "moduleVersion": "3.15.0",
+      "moduleName": "zipp",
+      "licenseUrl": "https://github.com/jaraco/zipp/blob/v3.15.0/LICENSE",
+      "moduleCopyright": "Copyright Jason R. Coombs",
+      "actualLicense": "MIT",
+      "violationAllowance": ""
+    }
+  ]
+}

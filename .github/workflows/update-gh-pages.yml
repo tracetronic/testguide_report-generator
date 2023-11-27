@@ -1,0 +1,55 @@
+# Copyright (C) 2023 TraceTronic GmbH
+#
+# SPDX-License-Identifier: MIT
+
+name: Update GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_gh_pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Install poetry
+        run: pip3 install poetry
+      - name: Install dependencies
+        run: poetry install --only dev,docs
+      - name: Create Sphinx documentation
+        run: |
+          mkdir docs/docs
+          poetry run sphinx-apidoc -f -o ./docs/source ./testguide_report_generator
+          poetry run sphinx-build -b html ./docs/source ./docs/docs
+          rm -r docs/source
+      - name: Copy additional documentation resources into docs folder
+        run: |
+          cp -f README.md docs/README.md
+          cp -f LICENSE docs/LICENSE
+          cp -f -R docs/images docs/docs/images
+      - name: Publish GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs
+          clean: true
+      - name: Create .nojekyll file to avoid Jekyll processing
+        run: |
+          git checkout gh-pages
+          git pull
+          if [ -f "docs/.nojekyll" ]; then
+            echo ".nojekyll already exists. Exiting."
+            exit 0
+          fi
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          touch docs/.nojekyll
+          git add docs/.nojekyll
+          git commit --signoff -m "Add .nojekyll file"
+          git push

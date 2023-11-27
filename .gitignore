@@ -1,0 +1,37 @@
+# python
+__pycache__
+
+# Unit test / coverage reports
+.pytest_cache/
+__pytest_cache__
+.coverage
+htmlcov/
+
+# generated files during tests
+/*.json
+/*.zip
+
+# Sphinx documentation
+docs/_build/
+docs/source/*
+!docs/source/conf.py
+!docs/source/index.rst
+docs/make.bat
+docs/Makefile
+_build
+
+
+# Pipenv files
+poetry.lock
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Pycharm
+.idea/

@@ -1,0 +1,471 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "$ref": "#/definitions/TimeStamp"
+    },
+    "name": {
+      "$ref": "#/definitions/ShortNameString"
+    },
+    "testcases": {
+      "$ref": "#/definitions/TestCases"
+    },
+    "optionalReportIdentifier": {
+      "type": "string",
+      "maxLength": 64
+    }
+  },
+  "required": [
+    "name",
+    "timestamp",
+    "testcases"
+  ],
+  "definitions": {
+    "TimeStamp": {
+      "type": "number",
+      "minimum": 0
+    },
+    "OptionalString": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "OptionalDescription": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 6144
+    },
+    "ShortNameString": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "$comment": "ATX standard provides a maximum of 128 characters for the shortnames, we allow 120 characters to buffer the ATX path reference assignment, like e.g. for Testcase_1 or Testcase_42."
+    },
+    "TestStepNameString": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255,
+      "$comment": "The length of the test step names are limited to 255 and are exceptionally not based on the ATX short name."
+    },
+    "TestCases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/TestCaseFolder"
+          },
+          {
+            "$ref": "#/definitions/TestCase"
+          }
+        ]
+      }
+    },
+    "TestCase": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "const": "testcase"
+        },
+        "name": {
+          "$ref": "#/definitions/ShortNameString"
+        },
+        "verdict": {
+          "$ref": "#/definitions/Verdict"
+        },
+        "description": {
+          "$ref": "#/definitions/OptionalDescription"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/TimeStamp"
+        },
+        "executionTime": {
+          "type": "number",
+          "minimum": 0
+        },
+        "constants": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Constant"
+          }
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Attribute"
+          }
+        },
+        "setupTestSteps": {
+          "$ref": "#/definitions/OptionalTestSteps"
+        },
+        "executionTestSteps": {
+          "$ref": "#/definitions/OptionalTestSteps"
+        },
+        "teardownTestSteps": {
+          "$ref": "#/definitions/OptionalTestSteps"
+        },
+        "parameters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Parameter"
+          }
+        },
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "artifactRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ArtifactRef"
+          }
+        },
+        "review": {
+          "$ref": "#/definitions/Review"
+        },
+        "paramSet": {
+          "$ref": "#/definitions/OptionalString"
+        },
+        "environments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Environment"
+          }
+        },
+        "recordings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Recording"
+          }
+        }
+      },
+      "required": [
+        "@type",
+        "name",
+        "verdict",
+        "timestamp"
+      ]
+    },
+    "TestCaseFolder": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "const": "testcasefolder"
+        },
+        "name": {
+          "$ref": "#/definitions/ShortNameString"
+        },
+        "testcases": {
+          "$ref": "#/definitions/TestCases"
+        }
+      },
+      "required": [
+        "@type",
+        "name",
+        "testcases"
+      ]
+    },
+    "Attribute": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/ShortNameString"
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ]
+    },
+    "Constant": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/ShortNameString"
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ]
+    },
+    "OptionalTestSteps": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/TestStepFolder"
+          },
+          {
+            "$ref": "#/definitions/TestStep"
+          }
+        ]
+      }
+    },
+    "TestStep": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "const": "teststep"
+        },
+        "name": {
+          "$ref": "#/definitions/TestStepNameString"
+        },
+        "description": {
+          "$ref": "#/definitions/OptionalDescription"
+        },
+        "verdict": {
+          "$ref": "#/definitions/Verdict"
+        },
+        "expectedResult": {
+          "$ref": "#/definitions/OptionalString"
+        },
+        "testStepArtifacts": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/TestStepArtifact"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "@type",
+        "name",
+        "verdict"
+      ]
+    },
+    "TestStepFolder": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "const": "teststepfolder"
+        },
+        "name": {
+          "$ref": "#/definitions/TestStepNameString"
+        },
+        "description": {
+          "$ref": "#/definitions/OptionalDescription"
+        },
+        "verdict": {
+          "$ref": "#/definitions/Verdict"
+        },
+        "expectedResult": {
+          "$ref": "#/definitions/OptionalString"
+        },
+        "teststeps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/TestStepFolder"
+              },
+              {
+                "$ref": "#/definitions/TestStep"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "@type",
+        "name",
+        "teststeps"
+      ]
+    },
+    "Verdict": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "PASSED",
+        "INCONCLUSIVE",
+        "FAILED",
+        "ERROR"
+      ]
+    },
+    "Environment": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/ShortNameString"
+        },
+        "value": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "desc"
+      ]
+    },
+    "Parameter": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/ShortNameString"
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "IN",
+            "OUT",
+            "INOUT"
+          ]
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "direction",
+        "value"
+      ]
+    },
+    "Review": {
+      "type": "object",
+      "properties": {
+        "summary": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 512
+        },
+        "comment": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 10000
+        },
+        "timestamp": {
+          "$ref": "#/definitions/TimeStamp"
+        },
+        "verdict": {
+          "$ref": "#/definitions/Verdict"
+        },
+        "author": {
+          "type": "string",
+          "maxLength": 512
+        },
+        "defect": {
+          "$ref": "#/definitions/OptionalString"
+        },
+        "defectPriority": {
+          "$ref": "#/definitions/OptionalString"
+        },
+        "tickets": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 512
+          }
+        },
+        "invalidRun": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "author",
+        "timestamp",
+        "comment"
+      ]
+    },
+    "Recording": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "IN",
+            "OUT",
+            "INOUT"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "direction"
+      ]
+    },
+    "ArtifactRef": {
+      "type": "object",
+      "properties": {
+        "ref": {
+          "type": "string"
+        },
+        "md5": {
+          "type": "string"
+        },
+        "fileSize": {
+          "type": "integer"
+        }
+      }
+    },
+    "TestStepArtifact": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "artifactType": {
+          "type": "string",
+          "enum": [
+          	"IMAGE"
+          ]
+        }
+      }
+  	}
+  }
+}

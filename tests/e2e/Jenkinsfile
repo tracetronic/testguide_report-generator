@@ -1,0 +1,63 @@
+/*
+* Copyright (c) 2022-2023 TraceTronic GmbH
+*
+* SPDX-License-Identifier: MIT
+*/
+
+@Library(['tracetronic-jenkins-lib', 'internal-cxs-jenkins-lib']) _
+
+pipeline {
+    agent {
+        node {
+            label 'windows && docker'
+        }
+    }
+    environment {
+        pipeline_report_dir = "pipeline_report2TG"
+        tgAuthKey = credentials('TG_authkey_test_report_upload')
+    }
+
+    stages {
+        stage ('Docker Build') {
+            steps {
+                bat """
+                    @echo off
+                    docker build -t temp/json_gen_e2e:${env.GIT_COMMIT} -f tests/e2e/Dockerfile .
+                """
+            }
+        }
+        stage('Docker run E2E Test') {
+            steps {
+                bat """
+                    docker run --rm -e TEST_GUIDE_URL=${TESTGUIDE_url} -e TEST_GUIDE_AUTHKEY=${tgAuthKey} -e TEST_GUIDE_PROJECT_ID=${TESTGUIDE_projectID} temp/json_gen_e2e:${env.GIT_COMMIT}
+                """
+            }
+        }
+    }
+    post {
+        always {
+            script {
+                catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                    stage ('Remove Docker Image') {
+                        bat """
+                            docker rmi temp/json_gen_e2e:${env.GIT_COMMIT}
+                        """
+                    }
+                }
+            }
+        }
+        cleanup {
+            script {
+                stage ('TEST-GUIDE Upload') {
+                    dir("${pipeline_report_dir}") {
+                        pipeline2ATX(true)
+                    }
+                    uploadJson2TG("${TESTGUIDE_url}", "${tgAuthKey}", "${TESTGUIDE_projectID}", "${pipeline_report_dir}/**", '')
+                }
+                stage ('Clean Workspace') {
+                    cleanWs()
+                }
+            }
+        }
+    }
+}

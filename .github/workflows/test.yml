@@ -1,0 +1,60 @@
+# Copyright (C) 2023 TraceTronic GmbH
+#
+# SPDX-License-Identifier: MIT
+
+name: Test
+run-name: Run unit tests with coverage analysis
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        py_version: ["3.7", "3.9"]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.py_version }}
+      - name: Install virtual environment
+        run: pip3 install poetry
+      - name: Ensure Python version
+        run: poetry env use ${{ matrix.py_version }}
+      - name: Install dependencies
+        run: poetry install --without workflow --no-root
+      - name: Execute Tests and create test coverage report
+        if: ${{ matrix.py_version == '3.9' }}
+        run: poetry run pytest tests --cov=testguide_report_generator --cov-report=xml:coverage.xml
+      - name: Execute Test
+        if: ${{ matrix.py_version != '3.9' }}
+        run: poetry run pytest tests
+      - name: Upload test coverage report
+        if: ${{ matrix.py_version == '3.9' }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-coverage-report
+          path: coverage.xml
+
+  publish-coverage:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    needs: test
+    steps:
+      - name: Download test coverage report
+        uses: actions/download-artifact@v3
+        with:
+          name: test-coverage-report
+      - name: Get Cover
+        uses: orgoro/coverage@v3
+        with:
+          coverageFile: coverage.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          thresholdAll: 0.99

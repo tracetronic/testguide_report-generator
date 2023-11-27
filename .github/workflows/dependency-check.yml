@@ -1,0 +1,43 @@
+# Copyright (C) 2023 TraceTronic GmbH
+#
+# SPDX-License-Identifier: MIT
+
+name: Ensure 3rd Party License Compliance
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+
+  validate-sbom:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.7.9' # latest binary release of v3.7
+      - name: Install poetry
+        run: pip3 install poetry
+      - name: Active Python version
+        run: |
+          echo "Active Python version is..."
+          python --version
+      - name: Export dependencies to requirements file
+        run: poetry export --only main -f requirements.txt -o requirements.txt --without-hashes --without-urls
+      - name: Install pipenv environment
+        run: pip3 install pipenv
+      - name: Create Pipfile.lock
+        run: pipenv install -r requirements.txt
+      - name: Install dev dependencies
+        run: poetry install --only dev --no-root
+      - name: check license compliance against allowlist
+        run: |
+          poetry run python config/license/check_dependencies.py `
+          --allowlist="config/license/allowlist.json" `
+          --sbom="cyclonedx.json" `
+          --schema="config/license/allowlist_schema.json"

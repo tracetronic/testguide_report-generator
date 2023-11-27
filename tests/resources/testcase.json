@@ -1,0 +1,153 @@
+{
+  "@type": "testcase",
+  "name": "testcase_one",
+  "verdict": "PASSED",
+  "description": "First testcase.",
+  "timestamp": 1670248341000,
+  "executionTime": 5,
+  "parameters": [
+    {
+      "name": "param",
+      "value": 10,
+      "direction": "OUT"
+    },
+    {
+      "name": "param2",
+      "value": 15,
+      "direction": "INOUT"
+    }
+  ],
+  "paramSet": "myset",
+  "setupTestSteps": [
+    {
+      "@type": "teststep",
+      "name": "ts",
+      "description": null,
+      "verdict": "NONE",
+      "expected_result": "undefined",
+      "testStepArtifacts": []
+    },
+    {
+      "@type": "teststepfolder",
+      "name": "tsf",
+      "description": null,
+      "teststeps": [
+        {
+          "@type": "teststep",
+          "name": "ts",
+          "description": null,
+          "verdict": "NONE",
+          "expected_result": "undefined",
+          "testStepArtifacts": []
+        },
+        {
+          "@type": "teststep",
+          "name": "ts2",
+          "description": "teststep2",
+          "verdict": "ERROR",
+          "expected_result": "err",
+          "testStepArtifacts": []
+        }
+      ]
+    }
+  ],
+  "executionTestSteps": [
+    {
+      "@type": "teststep",
+      "name": "ts2",
+      "description": "teststep2",
+      "verdict": "ERROR",
+      "expected_result": "err",
+      "testStepArtifacts": []
+    },
+    {
+      "@type": "teststepfolder",
+      "name": "tsf",
+      "description": null,
+      "teststeps": [
+        {
+          "@type": "teststep",
+          "name": "ts",
+          "description": null,
+          "verdict": "NONE",
+          "expected_result": "undefined",
+          "testStepArtifacts": []
+        },
+        {
+          "@type": "teststep",
+          "name": "ts2",
+          "description": "teststep2",
+          "verdict": "ERROR",
+          "expected_result": "err",
+          "testStepArtifacts": []
+        }
+      ]
+    }
+  ],
+  "teardownTestSteps": [
+    {
+      "@type": "teststepfolder",
+      "name": "tsf",
+      "description": null,
+      "teststeps": [
+        {
+          "@type": "teststep",
+          "name": "ts",
+          "description": null,
+          "verdict": "NONE",
+          "expected_result": "undefined",
+          "testStepArtifacts": []
+        },
+        {
+          "@type": "teststep",
+          "name": "ts2",
+          "description": "teststep2",
+          "verdict": "ERROR",
+          "expected_result": "err",
+          "testStepArtifacts": []
+        }
+      ]
+    },
+    {
+      "@type": "teststep",
+      "name": "ts2",
+      "description": "teststep2",
+      "verdict": "ERROR",
+      "expected_result": "err",
+      "testStepArtifacts": []
+    }
+  ],
+  "attributes": [
+    {
+      "key": "an",
+      "value": "attribute"
+    }
+  ],
+  "constants": [
+    {
+      "key": "const",
+      "value": "one"
+    },
+    {
+      "key": "another",
+      "value": "const"
+    },
+    {
+      "key": "",
+      "value": ""
+    },
+    {
+      "key": "const_key",
+      "value": "const_val"
+    }
+  ],
+  "environments": [],
+  "artifacts": [
+    "d41d8cd98f00b204e9800998ecf8427e/artifact.txt"
+  ],
+  "review": {
+    "comment": "comment",
+    "timestamp": 1670254005,
+    "author": "chucknorris"
+  }
+}

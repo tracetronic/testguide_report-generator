@@ -1,0 +1,12 @@
+# Copyright (c) 2022-2023 TraceTronic GmbH
+#
+# SPDX-License-Identifier: MIT
+
+.github
+.reuse
+config
+LICENSES
+LICENSE
+.gitignore
+default.pylintrc
+example_TestSuite.py

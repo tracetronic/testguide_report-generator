@@ -1,0 +1,28 @@
+{
+  "name": "MyTestSuite",
+  "timestamp": 1666698047000,
+  "testcases": [
+    {
+      "@type": "testcase",
+      "name": "TestCase_1",
+      "verdict": "PASSED",
+      "description": null,
+      "timestamp": 1666698047001,
+      "executionTime": 0,
+      "parameters": [],
+      "paramSet": null,
+      "setupTestSteps": [],
+      "executionTestSteps": [],
+      "teardownTestSteps": [],
+      "attributes": [],
+      "constants": [],
+      "environments": [],
+      "artifacts": []
+    },
+    {
+      "@type": "testcasefolder",
+      "name": "mytcf",
+      "testcases": []
+    }
+  ]
+}

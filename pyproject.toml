@@ -1,0 +1,33 @@
+# Copyright (c) 2022-2023 TraceTronic GmbH
+#
+# SPDX-License-Identifier: MIT
+
+[build-system]
+requires = [ "poetry-core",]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "testguide_report-generator"
+version = "1.0-beta"
+description = "This generator acts as a helper to create a TEST-GUIDE compatible test report."
+authors = [ "TraceTronic GmbH",]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.7.2 <3.10"
+jsonschema = "==4.16.0"
+
+[tool.poetry.group.workflow.dependencies]
+toml = "^0.10.2"
+requests = "^2.30.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "==7.2.0"
+pytest-cov = "==4.0.0"
+pylint = "==2.15.5"
+cyclonedx-bom = "==3.8.0"
+jsonschema = "==4.16.0"
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^5.3.0"
+python_docs_theme = "^2022.1"
