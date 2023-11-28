@@ -8,7 +8,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "testguide_report-generator"
-version = "1.0-beta"
+version = "1.0"
 description = "This generator acts as a helper to create a TEST-GUIDE compatible test report."
 authors = [ "TraceTronic GmbH",]
 readme = "README.md"
