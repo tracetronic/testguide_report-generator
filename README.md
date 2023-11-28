@@ -59,11 +59,14 @@ in different test environments.<br><br>
 
 ## Installation
 
-Installation can be done with your favourite Python package manager CLI, like [pip](https://pypi.org/project/pip/)
+You can directly install the project from GitHub using pip:
 ```bash
-pip install testguide-report-generator
-```
+# HTTP
+pip install git+https://github.com/tracetronic/testguide_report-generator/
 
+# SSH
+pip install git+ssh://git@github.com:tracetronic/testguide_report-generator/
+```
 or by adding the _testguide-report-generator_ dependency to your dependency management file, such as [requirements.txt](https://pip.pypa.io/en/stable/reference/requirements-file-format/) or [pyproject.toml](https://python-poetry.org/docs/pyproject/).
 
 ## Getting Started
