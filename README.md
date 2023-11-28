@@ -67,7 +67,7 @@ pip install git+https://github.com/tracetronic/testguide_report-generator/
 # SSH
 pip install git+ssh://git@github.com:tracetronic/testguide_report-generator/
 ```
-or by adding the _testguide-report-generator_ dependency to your dependency management file, such as [requirements.txt](https://pip.pypa.io/en/stable/reference/requirements-file-format/) or [pyproject.toml](https://python-poetry.org/docs/pyproject/).
+or by adding the _testguide-report-generator_ to your dependency management file, such as [requirements.txt](https://pip.pypa.io/en/stable/reference/requirements-file-format/) or [pyproject.toml](https://python-poetry.org/docs/pyproject/).
 
 ## Getting Started
 
