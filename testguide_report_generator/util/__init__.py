@@ -1,3 +1,3 @@
-# Copyright (c) 2023 TraceTronic GmbH
+# Copyright (c) 2023-2024 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT

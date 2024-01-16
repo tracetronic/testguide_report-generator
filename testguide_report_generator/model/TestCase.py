@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TraceTronic GmbH
+# Copyright (c) 2023-2024 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
@@ -363,7 +363,7 @@ class TestStep(Json2AtxRepr):
 
 class TestStepFolder(Json2AtxRepr):
     """
-    ATX-TestStepFolder. Each teststep folder must contain at least one TestStep to be TEST-GUIDE
+    ATX-TestStepFolder. Each teststep folder must contain at least one TestStep to be test.guide
     compliant.
     """
 
@@ -431,7 +431,7 @@ class TestStepFolder(Json2AtxRepr):
 class TestCase(Json2AtxRepr):
     """
     ATX-TestCase to be added to a :class:`TestSuite<testguide_report_generator.TestSuite.TestSuite>`. Each
-    TestSuite must contain at least one testcase to be TEST-GUIDE compliant (or, alternatively,
+    TestSuite must contain at least one testcase to be test.guide compliant (or, alternatively,
     at least one :class:`TestCaseFolder<testguide_report_generator.TestCaseFolder.TestCaseFolder>`).
     """
 

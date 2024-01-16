@@ -1,9 +1,9 @@
-# Copyright (C) 2023 TraceTronic GmbH
+# Copyright (c) 2023-2024 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
 name: '💡 Feature Request'
-description: 'Feature request template for TEST-GUIDE Json Generator development'
+description: 'Feature request template for test.guide Json Generator development'
 labels: ['feature']
 
 body:

@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TraceTronic GmbH
+# Copyright (c) 2023-2024 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
@@ -15,7 +15,7 @@ from tests.e2e.e2e_testsuite import create_testsuite
 @pytest.mark.skipif(os.environ.get("TEST_GUIDE_URL") is None, reason="Env variables are not set")
 def test_upload(value_storage: ValueStorage):
     """
-    Uploads a test suite with all classes to TEST-GUIDE
+    Uploads a test suite with all classes to test.guide
     """
     create_testsuite()
     assert os.path.exists("e2e.json")
@@ -53,7 +53,7 @@ def test_upload(value_storage: ValueStorage):
 @pytest.mark.skipif(os.environ.get("TEST_GUIDE_URL") is None, reason="Env variables are not set")
 def test_download(value_storage: ValueStorage):
     """
-    Test downloads data from TEST-GUIDE
+    Test downloads data from test.guide
     """
     query_url = value_storage.BASE_URL + "api/report/testCaseExecutions/filter"
     params = {"projectId": value_storage.PROJECT_ID, "offset": 0, "limit": 100, "authKey": value_storage.AUTHKEY}
@@ -77,7 +77,7 @@ def test_download(value_storage: ValueStorage):
 @pytest.mark.skipif(os.environ.get("TEST_GUIDE_URL") is None, reason="Env variables are not set")
 def test_compare(value_storage):
     """
-    Test compares data generated with data downloaded from TEST-GUIDE
+    Test compares data generated with data downloaded from test.guide
     """
     assert value_storage.remote_testcases_json is not None
     f = open("e2e.json")

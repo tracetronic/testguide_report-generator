@@ -1,5 +1,5 @@
 ..
-   Copyright (c) 2022 TraceTronic GmbH
+   Copyright (c) 2022-2024 tracetronic GmbH
 
    SPDX-License-Identifier: MIT
 
@@ -8,7 +8,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to TEST-GUIDE JSON Generator documentation
+Welcome to test.guide JSON Generator documentation
 ==================================================
 
 .. toctree::

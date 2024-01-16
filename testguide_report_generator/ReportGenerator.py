@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TraceTronic GmbH
+# Copyright (c) 2023-2024 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
@@ -22,9 +22,9 @@ DEFAULT_JSON_SCHEMA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__
 class Generator:
     """
     This class is responsible for the creation of the `.zip` file containing the test report and
-    possible artifacts, which can be uploaded to TEST-GUIDE. An object of type
+    possible artifacts, which can be uploaded to test.guide. An object of type
     :class:`TestSuite<testguide_report_generator.TestSuite.TestSuite>` is necessary, containing the
-    information about all testcases in a format compliant with the `TEST-GUIDE schema.json`. It
+    information about all testcases in a format compliant with the `test.guide schema.json`. It
     is possible that the `.json` generated from the TestSuite object is not compliant with the
     schema, for instance, if the suite does not contain any testcases. For further information,
     please conduct the README.

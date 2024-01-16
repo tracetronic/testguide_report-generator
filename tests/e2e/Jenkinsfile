@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2022-2023 TraceTronic GmbH
+* Copyright (c) 2022-2024 tracetronic GmbH
 *
 * SPDX-License-Identifier: MIT
 */
@@ -48,7 +48,7 @@ pipeline {
         }
         cleanup {
             script {
-                stage ('TEST-GUIDE Upload') {
+                stage ('test.guide Upload') {
                     dir("${pipeline_report_dir}") {
                         pipeline2ATX(true)
                     }

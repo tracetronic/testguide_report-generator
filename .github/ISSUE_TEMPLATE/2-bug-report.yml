@@ -1,4 +1,4 @@
-# Copyright (C) 2023 TraceTronic GmbH
+# Copyright (c) 2023-2024 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
@@ -46,5 +46,5 @@ body:
     attributes:
       value: | 
         **Never report security issues on GitHub or other public channels (Gitter/Twitter/etc.).** 
-        Instead, use our [TraceTronic Support Center](https://support.tracetronic.com). For reporting issues 
-        containing NDA relevant information please also use our [TraceTronic Support Center](https://support.tracetronic.com).
+        Instead, use our [tracetronic Support Center](https://support.tracetronic.com). For reporting issues 
+        containing NDA relevant information please also use our [tracetronic Support Center](https://support.tracetronic.com).
