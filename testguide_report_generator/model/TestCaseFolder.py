@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TraceTronic GmbH
+# Copyright (c) 2023-2024 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
@@ -17,9 +17,9 @@ from testguide_report_generator.util.ValidityChecks import check_name_length, ge
 class TestCaseFolder(Json2AtxRepr):
     """
     ATX-TestCaseFolder to be added to a :class:`TestSuite<testguide_report_generator.TestSuite.TestSuite>`.
-    Each TestSuite must contain at least one TestCase or TestCaseFolder to be TEST-GUIDE
+    Each TestSuite must contain at least one TestCase or TestCaseFolder to be test.guide
     compliant. Each TestCaseFolder must contain at least one
-    :class:`TestCase<testguide_report_generator.TestCase.TestCase>` to be TEST-GUIDE compliant.
+    :class:`TestCase<testguide_report_generator.TestCase.TestCase>` to be test.guide compliant.
     """
 
     __test__ = False  # pytest ignore

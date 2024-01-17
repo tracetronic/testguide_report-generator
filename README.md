@@ -1,46 +1,36 @@
 <!--
-Copyright (c) 2022-2023 TraceTronic GmbH
+Copyright (c) 2022-2024 tracetronic GmbH
 
 SPDX-License-Identifier: MIT
 -->
 
-# TEST-GUIDE Report Generator
+# test.guide Report Generator
 
 
- <!-- markdown-link-check-disable --> 
-[![Testing](https://github.com/tracetronic/testguide_json_generator_python/actions/workflows/test.yml/badge.svg)](https://github.com/tracetronic/testguide_json_generator_python/actions/workflows/test.yml) [![Releases](https://img.shields.io/badge/Releases-Changelog-blue)](https://github.com/tracetronic/testguide_json_generator_python/releases) [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/tracetronic/testguide_json_generator_python/blob/main/LICENSE) 
-<!-- markdown-link-check-enable -->
+[![Test](https://github.com/tracetronic/testguide_report-generator/actions/workflows/test.yml/badge.svg)](https://github.com/tracetronic/testguide_report-generator/actions/workflows/test.yml) [![Releases](https://img.shields.io/badge/Releases-Changelog-blue)](https://github.com/tracetronic/testguide_report-generator/releases) [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/tracetronic/testguide_report-generator/blob/main/LICENSE) 
 
 As a modern automotive test engineer, reliance on automated solutions for the execution, reporting and evaluation of my test suites is essential.
 The complexity of the systems under test, and thus the amount of necessary tests is ever growing tremendously. One of the tools which can help
-with these tasks is [TraceTronic TEST-GUIDE](https://www.tracetronic.com/products/test-guide/). As a user of TEST-GUIDE, it is desirable to have
+with these tasks is [tracetronic test.guide](https://www.tracetronic.com/products/test-guide/). As a user of test.guide, it is desirable to have
 a means to customize and structure my test reports in a simple manner. 
 
-This generator acts as a helper to create a [TEST-GUIDE](https://www.tracetronic.com/products/test-guide/) compatible 
+This generator acts as a helper to create a [test.guide](https://www.tracetronic.com/products/test-guide/) compatible 
 test report. Specific Python classes reflecting the different elements of a test report (*TestSuite*, *TestCase* and so on)
 were designed in such a way that you can create your own testsuite from these objects. This facilitates the conversion from arbitrary test report 
-formats into a *.json* which TEST-GUIDE can handle. With this generator, it is no more necessary to convert non-ATX formats directly
-into a *.json* for TEST-GUIDE. Instead, the delivered Python classes are prefilled in a simple manner, and the *.json* is
+formats into a *.json* which test.guide can handle. With this generator, it is no more necessary to convert non-ATX formats directly
+into a *.json* for test.guide. Instead, the delivered Python classes are prefilled in a simple manner, and the *.json* is
 generated for you. On top of this, early format checks are conducted such that you will be notified right away if something is not
 compliant to the *json* schema.
 
-<!-- markdown-link-check-disable -->
-<img src="https://github.com/tracetronic/testguide_json_generator_python/blob/main/docs/images/Logo_TEST-GUIDE_rgb_SCREEN.png?raw=true" align="left" alt="TEST-GUIDE" width="300">
-<!-- markdown-link-check-enable-->
+<img src="https://github.com/tracetronic/testguide_report-generator/blob/main/docs/images/Logo_TEST-GUIDE_rgb_SCREEN.png?raw=true" align="left" alt="test.guide" width="300">
 
-TEST-GUIDE is a database application for the overview, analysis and follow-up processing of test procedures, which has been specially 
+test.guide is a database application for the overview, analysis and follow-up processing of test procedures, which has been specially 
 developed for use in the automotive sector. It significantly facilitates the management of test resources. At the same time, it encourages 
 cross-role cooperation, thereby closing the gap between test execution and test management.
 <br />
 
-<!-- markdown-link-check-disable -->
-<img src="https://github.com/tracetronic/testguide_json_generator_python/blob/main/docs/images/platform_logo.png?raw=true" align="right" alt="Automotive DevOps Platform">
-<!-- markdown-link-check-enable-->
-
-<br />
-
-**TraceTronic TEST-GUIDE Report Generator** project is part of
-the [Automotive DevOps Platform](https://www.tracetronic.com/products/automotive-devops-platform/) by TraceTronic. With
+**tracetronic test.guide Report Generator** project is part of
+the [Automotive DevOps Platform](https://www.tracetronic.com/products/automotive-devops-platform/) by tracetronic. With
 the **Automotive DevOps Platform**, we go from the big picture to the details and unite all phases of vehicle software
 testing – from planning the test scopes to summarizing the test results. At the same time, continuous monitoring across
 all test phases always provides an overview of all activities – even with several thousand test executions per day and
@@ -71,9 +61,7 @@ or by adding the _testguide-report-generator_ to your dependency management file
 
 ## Getting Started
 
-<!-- markdown-link-check-disable --> 
-The commands which are necessary to generate [TEST-GUIDE](https://www.tracetronic.com/products/test-guide/) reports are collected exemplarily in the [*example_TestSuite.py*](/example_TestSuite.py). Run the example script to generate *json* and *zip* file:
-<!-- markdown-link-check-enable --> 
+The commands which are necessary to generate [test.guide](https://www.tracetronic.com/products/test-guide/) reports are collected exemplarily in the [*example_TestSuite.py*](example_TestSuite.py). Run the example script to generate *json* and *zip* file:
 
 ```bash
 python example_TestSuite.py
@@ -85,7 +73,7 @@ python example_TestSuite.py
 
 The elements follow the hierarchy `TestSuite --> TestCaseFolder --> TestCase --> TestStepFolder --> TestStep`. So, instances of *TestCase(Folder)* are added to *TestSuite*, and instances of *TestStep(Folder)* are added to *TestCase*. At least one *TestCase* or *TestStep* has to be added to the respective folder (see [Restrictions](#restrictions)).
 
-In the end, the report generator will take the assembled *TestSuite* and generate the report. The generator output is a *.json* report and a *.zip* file containing the generated test report along with possible testcase artifacts. The *.zip* file can be uploaded to TEST-GUIDE via the appropriate option in TEST-GUIDE. The schema of the *.json* which [TEST-GUIDE](https://www.tracetronic.com/products/test-guide/) expects can be found [here](testguide_report_generator/schema/schema.json).
+In the end, the report generator will take the assembled *TestSuite* and generate the report. The generator output is a *.json* report and a *.zip* file containing the generated test report along with possible testcase artifacts. The *.zip* file can be uploaded to test.guide via the appropriate option in test.guide. The schema of the *.json* which [test.guide](https://www.tracetronic.com/products/test-guide/) expects can be found [here](testguide_report_generator/schema/schema.json).
 
 A small example may look like this:
 
@@ -119,9 +107,7 @@ if __name__ == "__main__":
     create_testsuite()
 
 ```
-<!-- markdown-link-check-disable --> 
-A more extensive example is given in [example_TestSuite.py](/example_TestSuite.py).
-<!-- markdown-link-check-enable --> 
+A more extensive example is given in [example_TestSuite.py](example_TestSuite.py).
 
 ### Available classes and their purpose
 
@@ -161,7 +147,7 @@ A complete specification can be found in the [schema](testguide_report_generator
 ## Contribution
 
 At the moment, no external contributions are intended and merge requests from forks will automatically be **rejected**! However, 
-we do encourage you to file bugs and request features via the <!-- markdown-link-check-disable -->  [issue tracker](https://github.com/tracetronic/testguide_json_generator_python/issues). <!-- markdown-link-check-enable --> 
+we do encourage you to file bugs and request features via the [issue tracker](https://github.com/tracetronic/testguide_report-generator/issues).
 
 ## Documentation
 

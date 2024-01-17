@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TraceTronic GmbH
+# Copyright (c) 2023-2024 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
 
@@ -20,7 +20,7 @@ class TestSuite(Json2AtxRepr):
     """
     ATX-TestSuite. This is the top-level element from which the `.json` report will be generated. A
     testsuite must contain at least one :class:`TestCase<testguide_report_generator.TestCase.TestCase>` or
-    :class:`TestCaseFolder<testguide_report_generator.TestCaseFolder.TestCaseFolder>` to be TEST-GUIDE compliant
+    :class:`TestCaseFolder<testguide_report_generator.TestCaseFolder.TestCaseFolder>` to be test.guide compliant
     """
 
     __test__ = False  # pytest ignore

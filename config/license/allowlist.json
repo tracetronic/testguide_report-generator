@@ -2,9 +2,9 @@
   "allowedLicenses": [
     {
       "moduleLicense": "MIT",
-      "moduleVersion": "23.1.0",
+      "moduleVersion": "23.2.0",
       "moduleName": "attrs",
-      "licenseUrl": "https://github.com/python-attrs/attrs/blob/23.1.0/LICENSE",
+      "licenseUrl": "https://github.com/python-attrs/attrs/blob/23.2.0/LICENSE",
       "moduleCopyright": "Copyright (c) 2015 Hynek Schlawack and the attrs contributors",
       "actualLicense": "MIT",
       "violationAllowance": ""
