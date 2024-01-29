@@ -29,6 +29,7 @@ pipeline {
                     matcher = pattern.matcher(pyprojectContent)
                     if (matcher.find()) {
                         env.PRODUCT_VERSION = matcher.group(1)
+                        echo "Product Version set to: ${env.PRODUCT_VERSION}"
                     } else {
                         error "Version not found in pyproject.toml"
                     }
