@@ -25,7 +25,7 @@ pipeline {
                 script {
                     pyprojectContent = readFile 'pyproject.toml'
                     // This pattern matches versions like "1.0", "1.1.0", "1.1.0-beta", etc.
-                    pattern = ~'version\\s*=\\s*"([\\d]+(?:\\.[\\d]+)*(?:-\\w+)?)'
+                    pattern = ~'version\\s*=\\s*"(\\d+(\\.\\d+)*(-\\w+)?"'
                     matcher = pattern.matcher(pyprojectContent)
                     if (matcher.find()) {
                         env.PRODUCT_VERSION = matcher.group(1)
