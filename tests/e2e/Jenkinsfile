@@ -15,9 +15,27 @@ pipeline {
     environment {
         pipeline_report_dir = "pipeline_report2TG"
         tgAuthKey = credentials('TG_authkey_test_report_upload')
+        PRODUCT_NAME = "testguide_report_generator_python"
+        TEST_LEVEL = "system"
     }
 
     stages {
+        stage('Set Product Version') {
+            steps {
+                script {
+                    pyprojectContent = readFile 'pyproject.toml'
+                    // This pattern matches versions like "1.0", "1.1.0", "1.1.0-beta", etc.
+                    pattern = ~'version\\s*=\\s*"(\\d+(\\.\\d+){1,2}(-\\w+)?)"'
+                    matcher = pattern.matcher(pyprojectContent)
+                    if (matcher.find()) {
+                        env.PRODUCT_VERSION = matcher.group(1)
+                        echo "Product Version set to: ${env.PRODUCT_VERSION}"
+                    } else {
+                        error "Version not found in pyproject.toml"
+                    }
+                }
+            }
+        }
         stage ('Docker Build') {
             steps {
                 bat """
