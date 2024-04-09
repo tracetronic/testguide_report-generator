@@ -20,10 +20,10 @@
     },
     {
       "moduleLicense": "MIT",
-      "moduleVersion": "0.19.3",
+      "moduleVersion": "0.20.0",
       "moduleName": "pyrsistent",
-      "licenseUrl": "https://github.com/tobgu/pyrsistent/blob/v0.19.2/LICENSE.mit",
-      "moduleCopyright": "Copyright (c) 2022 Tobias Gustafsson",
+      "licenseUrl": "https://github.com/tobgu/pyrsistent/blob/v0.20.0/LICENSE.mit",
+      "moduleCopyright": "Copyright (c) 2023 Tobias Gustafsson",
       "actualLicense": "MIT",
       "violationAllowance": ""
     },
