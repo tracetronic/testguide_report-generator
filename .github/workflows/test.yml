@@ -15,7 +15,7 @@ jobs:
   test:
     strategy:
       matrix:
-        py_version: ["3.7", "3.9"]
+        py_version: ["3.12"]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -31,13 +31,13 @@ jobs:
       - name: Install dependencies
         run: poetry install --without workflow --no-root
       - name: Execute Tests and create test coverage report
-        if: ${{ matrix.py_version == '3.9' }}
+        if: ${{ matrix.py_version == '3.12' }}
         run: poetry run pytest tests --cov=testguide_report_generator --cov-report=xml:coverage.xml
       - name: Execute Test
-        if: ${{ matrix.py_version != '3.9' }}
+        if: ${{ matrix.py_version != '3.12' }}
         run: poetry run pytest tests
       - name: Upload test coverage report
-        if: ${{ matrix.py_version == '3.9' }}
+        if: ${{ matrix.py_version == '3.12' }}
         uses: actions/upload-artifact@v3
         with:
           name: test-coverage-report
