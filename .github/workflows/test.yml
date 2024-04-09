@@ -13,9 +13,8 @@ on:
 
 jobs:
   test:
-    strategy:
-      matrix:
-        py_version: ["3.12"]
+    env:
+        PYTHON_VERSION: "3.12"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -23,21 +22,18 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.py_version }}
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: Install virtual environment
         run: pip3 install poetry
       - name: Ensure Python version
-        run: poetry env use ${{ matrix.py_version }}
+        run: poetry env use ${{ env.PYTHON_VERSION }}
       - name: Install dependencies
         run: poetry install --without workflow --no-root
       - name: Execute Tests and create test coverage report
-        if: ${{ matrix.py_version == '3.12' }}
         run: poetry run pytest tests --cov=testguide_report_generator --cov-report=xml:coverage.xml
       - name: Execute Test
-        if: ${{ matrix.py_version != '3.12' }}
         run: poetry run pytest tests
       - name: Upload test coverage report
-        if: ${{ matrix.py_version == '3.12' }}
         uses: actions/upload-artifact@v3
         with:
           name: test-coverage-report
