@@ -14,7 +14,7 @@ authors = [ "tracetronic GmbH",]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.12"
+python = "^3.12"
 jsonschema = "==4.16.0"
 
 [tool.poetry.group.workflow.dependencies]
