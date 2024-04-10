@@ -1,7 +1,7 @@
 # Copyright (c) 2022-2024 tracetronic GmbH
 #
 # SPDX-License-Identifier: MIT
-FROM python:3.9
+FROM python:3.12
 COPY . .
 #Install poetry
 RUN pip install poetry
