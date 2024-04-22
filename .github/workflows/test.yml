@@ -13,8 +13,9 @@ on:
 
 jobs:
   test:
-    env:
-        PYTHON_VERSION: "3.12"
+    strategy:
+      matrix:
+        py_version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,11 +23,11 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ env.PYTHON_VERSION }}
+          python-version: ${{ matrix.py_version }}
       - name: Install virtual environment
         run: pip3 install poetry
       - name: Ensure Python version
-        run: poetry env use ${{ env.PYTHON_VERSION }}
+        run: poetry env use ${{ matrix.py_version }}
       - name: Install dependencies
         run: poetry install --without workflow --no-root
       - name: Execute Tests and create test coverage report
