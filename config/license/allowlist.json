@@ -14,7 +14,7 @@
       "moduleVersion": "6.4.0",
       "moduleName": "importlib-resources",
       "licenseUrl": "https://github.com/python/importlib_resources/blob/v6.4.0/LICENSE",
-      "moduleCopyright": "Barry Warsaw and the contributors to the project",
+      "moduleCopyright": "",
       "actualLicense": "Apache-2.0",
       "violationAllowance": ""
     },
@@ -50,7 +50,7 @@
       "moduleVersion": "3.18.1",
       "moduleName": "zipp",
       "licenseUrl": "https://github.com/jaraco/zipp/blob/v3.18.1/LICENSE",
-      "moduleCopyright": "Copyright Jason R. Coombs",
+      "moduleCopyright": "",
       "actualLicense": "MIT",
       "violationAllowance": ""
     }
