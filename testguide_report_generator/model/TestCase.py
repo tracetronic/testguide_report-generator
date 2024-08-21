@@ -295,10 +295,10 @@ class TestStep(Json2AtxRepr):
         if not isinstance(verdict, Verdict):
             raise TypeError("Argument 'verdict' must be of type 'Verdict'.")
 
-        self.__description = None
+        self.__description: str | None = None
         self.__verdict = verdict
         self.__expected_result = expected_result
-        self.__artifacts = []
+        self.__artifacts: list[Artifact] = []
 
     def set_description(self, desc: str):
         """
@@ -377,8 +377,8 @@ class TestStepFolder(Json2AtxRepr):
         :type name: str
         """
         self.__name = check_name_length(name, gen_error_msg("TestStepFolder", name))
-        self.__description = None
-        self.__teststeps = []
+        self.__description: str | None = None
+        self.__teststeps: list[Union[TestStep, TestStepFolder]] =  []
 
     def set_description(self, desc: str):
         """
@@ -458,21 +458,21 @@ class TestCase(Json2AtxRepr):
         self.__verdict = verdict
 
         self.__execution_time = 0
-        self.__description = None
+        self.__description: str | None = None
 
-        self.__setup_teststeps = []
-        self.__execution_teststeps = []
-        self.__teardown_teststeps = []
+        self.__setup_teststeps: list[Union[TestStep, TestStepFolder]] = []
+        self.__execution_teststeps: list[Union[TestStep, TestStepFolder]] = []
+        self.__teardown_teststeps: list[Union[TestStep, TestStepFolder]] = []
 
-        self.__param_set = None
-        self.__parameters = []
+        self.__param_set: str | None = None
+        self.__parameters: list[Parameter] = []
 
-        self.__attributes = []
-        self.__constants = []
+        self.__attributes: list[Attribute] = []
+        self.__constants: list[Constant] = []
 
-        self.__artifacts = []
+        self.__artifacts: list[Artifact] = []
 
-        self.__review = None
+        self.__review: Review | None = None
 
     def set_description(self, desc: str):
         """

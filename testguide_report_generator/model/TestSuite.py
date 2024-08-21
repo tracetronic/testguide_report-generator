@@ -37,7 +37,7 @@ class TestSuite(Json2AtxRepr):
         """
         self.__name = check_name_length(name, self.NAME_ERROR_MSG)
         self.__timestamp = timestamp
-        self.__testcases = []
+        self.__testcases: list[Union[TestCase, TestCaseFolder]] = []
 
     def add_testcase(self, testcase: Union[TestCase, TestCaseFolder]):
         """
@@ -54,14 +54,14 @@ class TestSuite(Json2AtxRepr):
             self.__testcases.append(testcase)
         return self
 
-    def get_testcases(self):
+    def get_testcases(self) -> list:
         """
         :return: Testcases or TestCaseFolders
         :rtype: list
         """
         return self.__testcases
 
-    def create_json_repr(self):
+    def create_json_repr(self) -> dict:
         """
         @see: :class:`Json2AtxRepr<testguide_report_generator.Json2AtxRepr>`
         """

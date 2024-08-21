@@ -242,7 +242,7 @@ def value_storage():
 
 class ValueStorage:
     def __init__(self) -> None:
-        self.e2e_atxid = None
+        self.e2e_atxid: str | None = None
         self.remote_testcases_json = None
         self.BASE_URL = os.getenv("TEST_GUIDE_URL")
         self.AUTHKEY = os.getenv("TEST_GUIDE_AUTHKEY")
