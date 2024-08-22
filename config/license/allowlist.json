@@ -2,18 +2,18 @@
   "allowedLicenses": [
     {
       "moduleLicense": "MIT",
-      "moduleVersion": "23.2.0",
+      "moduleVersion": "24.2.0",
       "moduleName": "attrs",
-      "licenseUrl": "https://github.com/python-attrs/attrs/blob/23.2.0/LICENSE",
+      "licenseUrl": "https://github.com/python-attrs/attrs/blob/24.2.0/LICENSE",
       "moduleCopyright": "Copyright (c) 2015 Hynek Schlawack and the attrs contributors",
       "actualLicense": "MIT",
       "violationAllowance": ""
     },
     {
       "moduleLicense": "Apache-2.0",
-      "moduleVersion": "6.4.0",
+      "moduleVersion": "6.4.3",
       "moduleName": "importlib-resources",
-      "licenseUrl": "https://github.com/python/importlib_resources/blob/v6.4.0/LICENSE",
+      "licenseUrl": "https://github.com/python/importlib_resources/blob/v6.4.3/LICENSE",
       "moduleCopyright": "",
       "actualLicense": "Apache-2.0",
       "violationAllowance": ""
@@ -47,9 +47,9 @@
     },
     {
       "moduleLicense": "MIT",
-      "moduleVersion": "3.18.1",
+      "moduleVersion": "3.20.0",
       "moduleName": "zipp",
-      "licenseUrl": "https://github.com/jaraco/zipp/blob/v3.18.1/LICENSE",
+      "licenseUrl": "https://github.com/jaraco/zipp/blob/v3.20.0/LICENSE",
       "moduleCopyright": "",
       "actualLicense": "MIT",
       "violationAllowance": ""
