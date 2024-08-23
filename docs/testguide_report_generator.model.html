@@ -689,7 +689,7 @@ compliant. Each TestCaseFolder must contain at least one
 <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code> to be test.guide compliant.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="testguide_report_generator.model.TestCaseFolder.TestCaseFolder.add_testcase">
-<span class="sig-name descname"><span class="pre">add_testcase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">testcase</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.model.TestCaseFolder.TestCaseFolder.add_testcase" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_testcase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">testcase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#testguide_report_generator.model.TestCase.TestCase" title="testguide_report_generator.model.TestCase.TestCase"><span class="pre">TestCase</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#testguide_report_generator.model.TestCaseFolder.TestCaseFolder.add_testcase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a TestCase or TestCaseFolder to the testcase folder.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -771,13 +771,13 @@ TestCaseFolder was added</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="testguide_report_generator.model.TestSuite.TestSuite.create_json_repr">
-<span class="sig-name descname"><span class="pre">create_json_repr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.model.TestSuite.TestSuite.create_json_repr" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">create_json_repr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#testguide_report_generator.model.TestSuite.TestSuite.create_json_repr" title="Permalink to this definition">¶</a></dt>
 <dd><p>&#64;see: <code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="testguide_report_generator.model.TestSuite.TestSuite.get_testcases">
-<span class="sig-name descname"><span class="pre">get_testcases</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.model.TestSuite.TestSuite.get_testcases" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_testcases</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#testguide_report_generator.model.TestSuite.TestSuite.get_testcases" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Testcases or TestCaseFolders</p>
