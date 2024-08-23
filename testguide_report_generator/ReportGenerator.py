@@ -30,7 +30,6 @@ class Generator:
     please conduct the README.
     """
 
-    __testsuite = None
 
     def __init__(self, testsuite: TestSuite, json_schema_path: str = DEFAULT_JSON_SCHEMA_PATH):
         """

@@ -8,6 +8,7 @@
 This module contains the TestCaseFolder class.
 """
 
+from typing_extensions import Self
 from testguide_report_generator.model.TestCase import TestCase
 from testguide_report_generator.util.Json2AtxRepr import Json2AtxRepr
 from testguide_report_generator.util.ValidityChecks import check_name_length, gen_error_msg, \
@@ -32,9 +33,9 @@ class TestCaseFolder(Json2AtxRepr):
         :type name: str
         """
         self.__name = check_name_length(name, gen_error_msg("TestCaseFolder", name))
-        self.__testcases = []
+        self.__testcases: list[TestCase | TestCaseFolder] = []
 
-    def add_testcase(self, testcase):
+    def add_testcase(self, testcase: TestCase | Self) -> Self:
         # pylint: disable=R0801
         """
         Adds a TestCase or TestCaseFolder to the testcase folder.

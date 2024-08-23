@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 name: Lint
-run-name: Linting code
+run-name: Linting code and type checking
 
 on:
   push:
@@ -31,3 +31,5 @@ jobs:
         run: poetry install --without workflow --no-root
       - name: Execute Linting
         run: poetry run pylint --rcfile default.pylintrc testguide_report_generator
+      - name: Execute Type Checking
+        run: poetry run mypy .

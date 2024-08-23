@@ -21,6 +21,9 @@ def test_upload(value_storage: ValueStorage):
     assert os.path.exists("e2e.json")
     assert os.path.exists("e2e.zip")
 
+    if value_storage.BASE_URL is None:
+        raise ValueError("BASE_URL in value_storage cannot be None.")
+
     upload_url = value_storage.BASE_URL + "api/upload-file"
     params = {
         "projectId": value_storage.PROJECT_ID,
@@ -55,6 +58,10 @@ def test_download(value_storage: ValueStorage):
     """
     Test downloads data from test.guide
     """
+
+    if value_storage.BASE_URL is None:
+        raise ValueError("BASE_URL in value_storage cannot be None.")
+
     query_url = value_storage.BASE_URL + "api/report/testCaseExecutions/filter"
     params = {"projectId": value_storage.PROJECT_ID, "offset": 0, "limit": 100, "authKey": value_storage.AUTHKEY}
     filter = {
