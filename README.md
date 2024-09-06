@@ -79,11 +79,11 @@ A small example may look like this:
 
 ```
 # import necessary classes for the TestSuite creation
-from testguide_report_generator.model.TestSuite import TestSuite
-from testguide_report_generator.model.TestCase import TestCase, Verdict
+from testguide_report_generator import TestSuite
+from testguide_report_generator import TestCase, Verdict
 
 # import the .json generator
-from testguide_report_generator.ReportGenerator import Generator
+from testguide_report_generator import Generator
 
 
 def create_testsuite():
