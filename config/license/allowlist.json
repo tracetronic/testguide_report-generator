@@ -11,9 +11,9 @@
     },
     {
       "moduleLicense": "Apache-2.0",
-      "moduleVersion": "6.4.4",
+      "moduleVersion": "6.4.5",
       "moduleName": "importlib-resources",
-      "licenseUrl": "https://github.com/python/importlib_resources/blob/v6.4.4/LICENSE",
+      "licenseUrl": "https://github.com/python/importlib_resources/blob/v6.4.5/LICENSE",
       "moduleCopyright": "",
       "actualLicense": "Apache-2.0",
       "violationAllowance": ""
