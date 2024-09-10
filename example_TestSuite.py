@@ -6,11 +6,8 @@
 Example Script.
 """
 
-from testguide_report_generator import TestSuite
-from testguide_report_generator import TestCase, TestStep, TestStepFolder, Verdict, Parameter, \
-    Direction, Review, TestStepArtifactType
-from testguide_report_generator import TestCaseFolder
-from testguide_report_generator import Generator
+from testguide_report_generator import TestSuite, TestCase, TestStep, TestStepFolder, Verdict, Parameter, \
+    Direction, Review, TestStepArtifactType, TestCaseFolder, Generator
 
 
 def create_testsuite():
