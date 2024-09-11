@@ -220,6 +220,788 @@ please conduct the README.</p>
 </section>
 <section id="module-testguide_report_generator">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-testguide_report_generator" title="Permalink to this heading">¶</a></h2>
+<p>This module provides essential imports for the testguide_report_generator package.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="testguide_report_generator.Artifact">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">Artifact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Artifact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr" title="testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></a></p>
+<p>TestCase artifact.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Artifact.create_json_repr">
+<span class="sig-name descname"><span class="pre">create_json_repr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Artifact.create_json_repr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">See<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Artifact.get_file_path">
+<span class="sig-name descname"><span class="pre">get_file_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Artifact.get_file_path" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>path to file</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Artifact.get_path_in_upload_zip">
+<span class="sig-name descname"><span class="pre">get_path_in_upload_zip</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Artifact.get_path_in_upload_zip" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>hash-encoded path in the <cite>.zip</cite> file</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="testguide_report_generator.Attribute">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">Attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr" title="testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></a></p>
+<p>ATX-Attribute.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Attribute.create_json_repr">
+<span class="sig-name descname"><span class="pre">create_json_repr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Attribute.create_json_repr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">See<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="testguide_report_generator.Direction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">Direction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Parameter directions.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="testguide_report_generator.Direction.IN">
+<span class="sig-name descname"><span class="pre">IN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#testguide_report_generator.Direction.IN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="testguide_report_generator.Direction.INOUT">
+<span class="sig-name descname"><span class="pre">INOUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#testguide_report_generator.Direction.INOUT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="testguide_report_generator.Direction.OUT">
+<span class="sig-name descname"><span class="pre">OUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#testguide_report_generator.Direction.OUT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="testguide_report_generator.Generator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">Generator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">testsuite</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestSuite.TestSuite" title="testguide_report_generator.model.TestSuite.TestSuite"><span class="pre">TestSuite</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_schema_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/home/runner/work/testguide_report-generator/testguide_report-generator/testguide_report_generator/schema/schema.json'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Generator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class is responsible for the creation of the <cite>.zip</cite> file containing the test report and
+possible artifacts, which can be uploaded to test.guide. An object of type
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TestSuite</span></code> is necessary, containing the
+information about all testcases in a format compliant with the <cite>test.guide schema.json</cite>. It
+is possible that the <cite>.json</cite> generated from the TestSuite object is not compliant with the
+schema, for instance, if the suite does not contain any testcases. For further information,
+please conduct the README.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Generator.export">
+<span class="sig-name descname"><span class="pre">export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Generator.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method generates both a test report in <cite>.json</cite> format from the testsuite and a
+<cite>.zip</cite> file containing that report, as well as possible further artifacts added to the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code> objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>json_file_path</strong> (<em>str</em>) – the path for the output <cite>.json</cite> file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>path to the exported <cite>.zip</cite> file</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="testguide_report_generator.JsonValidator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">JsonValidator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_schema_file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/home/runner/work/testguide_report-generator/testguide_report-generator/testguide_report_generator/util/../schema/schema.json'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.JsonValidator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Validator for the Json2Atx file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.JsonValidator.validate_file">
+<span class="sig-name descname"><span class="pre">validate_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.JsonValidator.validate_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the given json file against the schema.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>json_file_path</strong> (<em>str</em>) – path to generated json schema</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>true if the validation was successful, otherwise false</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.JsonValidator.validate_json">
+<span class="sig-name descname"><span class="pre">validate_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.JsonValidator.validate_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the given json object against the schema.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>json_object</strong> (<em>dict</em>) – dictionary which represents json formatted data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>true if the validation was successful, otherwise false</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="testguide_report_generator.Parameter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">Parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Direction" title="testguide_report_generator.model.TestCase.Direction"><span class="pre">Direction</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr" title="testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></a></p>
+<p>ATX-Parameter.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Parameter.create_json_repr">
+<span class="sig-name descname"><span class="pre">create_json_repr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Parameter.create_json_repr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">See<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="testguide_report_generator.Review">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">Review</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">author</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr" title="testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></a></p>
+<p>TestCase review.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Review.create_json_repr">
+<span class="sig-name descname"><span class="pre">create_json_repr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review.create_json_repr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">See<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">TestCase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Verdict" title="testguide_report_generator.model.TestCase.Verdict"><span class="pre">Verdict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr" title="testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></a></p>
+<p>ATX-TestCase to be added to a <code class="xref py py-class docutils literal notranslate"><span class="pre">TestSuite</span></code>. Each
+TestSuite must contain at least one testcase to be test.guide compliant (or, alternatively,
+at least one <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCaseFolder</span></code>).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCase.add_artifact">
+<span class="sig-name descname"><span class="pre">add_artifact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">artifact_file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_on_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.add_artifact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds an arbitrary artifact to the testcase execution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>artifact_file_path</strong> (<em>str</em>) – artifact file path</p></li>
+<li><p><strong>ignore_on_error</strong> (<em>bool</em>) – True, if this file should simply be ignored if the file path is
+accessed incorrectly, otherwise False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>OSError</strong> – file_path is invalid, only when ignore_on_error = False</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>this object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#testguide_report_generator.TestStep" title="testguide_report_generator.TestStep">TestStep</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCase.add_attribute_pair">
+<span class="sig-name descname"><span class="pre">add_attribute_pair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.add_attribute_pair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an attribute to the testcase.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – Attribute key</p></li>
+<li><p><strong>value</strong> (<em>str</em>) – Attribute value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>this object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#testguide_report_generator.TestCase" title="testguide_report_generator.TestCase">TestCase</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCase.add_constant">
+<span class="sig-name descname"><span class="pre">add_constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constant</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Constant" title="testguide_report_generator.model.TestCase.Constant"><span class="pre">Constant</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.add_constant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a constant to the test case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>constant</strong> (<a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Constant" title="testguide_report_generator.model.TestCase.Constant"><em>Constant</em></a>) – ATX-Constant</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – the argument is of the wrong type</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>this object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#testguide_report_generator.TestCase" title="testguide_report_generator.TestCase">TestCase</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCase.add_constant_pair">
+<span class="sig-name descname"><span class="pre">add_constant_pair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.add_constant_pair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a constant to the testcase.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – Constant key</p></li>
+<li><p><strong>value</strong> (<em>str</em>) – Constant value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>this object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#testguide_report_generator.TestCase" title="testguide_report_generator.TestCase">TestCase</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCase.add_constants">
+<span class="sig-name descname"><span class="pre">add_constants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constants</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Constant" title="testguide_report_generator.model.TestCase.Constant"><span class="pre">Constant</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.add_constants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a list of constants to the test case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>constants</strong> (<em>list</em>) – list of Constant</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – constants contains at least one element which has the wrong type</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>this object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#testguide_report_generator.TestCase" title="testguide_report_generator.TestCase">TestCase</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCase.add_execution_teststep">
+<span class="sig-name descname"><span class="pre">add_execution_teststep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">teststep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.TestStep" title="testguide_report_generator.model.TestCase.TestStep"><span class="pre">TestStep</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.TestStepFolder" title="testguide_report_generator.model.TestCase.TestStepFolder"><span class="pre">TestStepFolder</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.add_execution_teststep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a TestStep or TestStepFolder to the execution test steps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>teststep</strong> (<a class="reference internal" href="#testguide_report_generator.TestStep" title="testguide_report_generator.TestStep"><em>TestStep</em></a><em> or </em><a class="reference internal" href="#testguide_report_generator.TestStepFolder" title="testguide_report_generator.TestStepFolder"><em>TestStepFolder</em></a>) – TestStep to be added</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p>ValueError, if the argument is not a TestStep or TestStepFolder, or if an empty
+TestStepFolder was added</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>this object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#testguide_report_generator.TestCase" title="testguide_report_generator.TestCase">TestCase</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCase.add_parameter_set">
+<span class="sig-name descname"><span class="pre">add_parameter_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Parameter" title="testguide_report_generator.model.TestCase.Parameter"><span class="pre">Parameter</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.add_parameter_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameter set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em><em> or </em><em>None</em>) – name of the parameter set</p></li>
+<li><p><strong>params</strong> (<em>list</em>) – list of Parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – the ‘params’ parameter has the wrong type</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>this object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#testguide_report_generator.TestCase" title="testguide_report_generator.TestCase">TestCase</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCase.add_setup_teststep">
+<span class="sig-name descname"><span class="pre">add_setup_teststep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">teststep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.TestStep" title="testguide_report_generator.model.TestCase.TestStep"><span class="pre">TestStep</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.TestStepFolder" title="testguide_report_generator.model.TestCase.TestStepFolder"><span class="pre">TestStepFolder</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.add_setup_teststep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a TestStep or TestStepFolder to the setup/precondition teststeps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>teststep</strong> (<a class="reference internal" href="#testguide_report_generator.TestStep" title="testguide_report_generator.TestStep"><em>TestStep</em></a><em> or </em><a class="reference internal" href="#testguide_report_generator.TestStepFolder" title="testguide_report_generator.TestStepFolder"><em>TestStepFolder</em></a>) – TestStep to be added</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p>ValueError, if the argument is not a TestStep or TestStepFolder, or if an empty
+TestStepFolder was added</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>this object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#testguide_report_generator.TestCase" title="testguide_report_generator.TestCase">TestCase</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCase.add_teardown_teststep">
+<span class="sig-name descname"><span class="pre">add_teardown_teststep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">teststep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.TestStep" title="testguide_report_generator.model.TestCase.TestStep"><span class="pre">TestStep</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.TestStepFolder" title="testguide_report_generator.model.TestCase.TestStepFolder"><span class="pre">TestStepFolder</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.add_teardown_teststep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a TestStep or TestStepFolder to the teardown/postcondition test steps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>teststep</strong> (<a class="reference internal" href="#testguide_report_generator.TestStep" title="testguide_report_generator.TestStep"><em>TestStep</em></a><em> or </em><a class="reference internal" href="#testguide_report_generator.TestStepFolder" title="testguide_report_generator.TestStepFolder"><em>TestStepFolder</em></a>) – TestStep to be added</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p>ValueError, if the argument is not a TestStep or TestStepFolder, or if an empty
+TestStepFolder was added</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>this object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#testguide_report_generator.TestCase" title="testguide_report_generator.TestCase">TestCase</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCase.create_json_repr">
+<span class="sig-name descname"><span class="pre">create_json_repr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.create_json_repr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">See<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCase.get_artifacts">
+<span class="sig-name descname"><span class="pre">get_artifacts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.get_artifacts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Attached files to the testcase and its test steps.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCase.set_description">
+<span class="sig-name descname"><span class="pre">set_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.set_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the test case description.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>desc</strong> (<em>str</em>) – testcase description</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>this object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#testguide_report_generator.TestCase" title="testguide_report_generator.TestCase">TestCase</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCase.set_execution_time_in_sec">
+<span class="sig-name descname"><span class="pre">set_execution_time_in_sec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exec_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.set_execution_time_in_sec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the execution time of the testcase.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>exec_time</strong> (<em>int</em>) – execution time in seconds &gt; 0</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>this object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#testguide_report_generator.TestCase" title="testguide_report_generator.TestCase">TestCase</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCase.set_review">
+<span class="sig-name descname"><span class="pre">set_review</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">review</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Review" title="testguide_report_generator.model.TestCase.Review"><span class="pre">Review</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.set_review" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a review for the testcase.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>review</strong> (<a class="reference internal" href="#testguide_report_generator.Review" title="testguide_report_generator.Review"><em>Review</em></a>) – Review for testcase</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – the argument is of the wrong type</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCaseFolder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">TestCaseFolder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCaseFolder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr" title="testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></a></p>
+<p>ATX-TestCaseFolder to be added to a <code class="xref py py-class docutils literal notranslate"><span class="pre">TestSuite</span></code>.
+Each TestSuite must contain at least one TestCase or TestCaseFolder to be test.guide
+compliant. Each TestCaseFolder must contain at least one
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code> to be test.guide compliant.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCaseFolder.add_testcase">
+<span class="sig-name descname"><span class="pre">add_testcase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">testcase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.TestCase" title="testguide_report_generator.model.TestCase.TestCase"><span class="pre">TestCase</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#testguide_report_generator.TestCaseFolder.add_testcase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a TestCase or TestCaseFolder to the testcase folder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>testcase</strong> (<a class="reference internal" href="#testguide_report_generator.TestCase" title="testguide_report_generator.TestCase"><em>TestCase</em></a><em> or </em><a class="reference internal" href="#testguide_report_generator.TestCaseFolder" title="testguide_report_generator.TestCaseFolder"><em>TestCaseFolder</em></a>) – testcase to be added</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p>ValueError, if the argument is not a TestCase or TestCaseFolder</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>this object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#testguide_report_generator.TestCaseFolder" title="testguide_report_generator.TestCaseFolder">TestCaseFolder</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCaseFolder.create_json_repr">
+<span class="sig-name descname"><span class="pre">create_json_repr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCaseFolder.create_json_repr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">See<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestCaseFolder.get_testcases">
+<span class="sig-name descname"><span class="pre">get_testcases</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCaseFolder.get_testcases" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Testcases or TestCaseFolders</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="testguide_report_generator.TestStep">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">TestStep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Verdict" title="testguide_report_generator.model.TestCase.Verdict"><span class="pre">Verdict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestStep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr" title="testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></a></p>
+<p>ATX-TestStep.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestStep.add_artifact">
+<span class="sig-name descname"><span class="pre">add_artifact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">artifact_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.TestStepArtifactType" title="testguide_report_generator.model.TestCase.TestStepArtifactType"><span class="pre">TestStepArtifactType</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_on_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestStep.add_artifact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an artifact to the TestStep. Allows to ignore the artifact, if it does not exist.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> (<em>str</em>) – path to artifact</p></li>
+<li><p><strong>artifact_type</strong> (<a class="reference internal" href="#testguide_report_generator.TestStepArtifactType" title="testguide_report_generator.TestStepArtifactType"><em>TestStepArtifactType</em></a>) – type of the artifact</p></li>
+<li><p><strong>ignore_on_error</strong> (<em>bool</em>) – set to True, to skip this artifact if it does not exist (will not raise an error)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>OSError</strong> – file_path is invalid, only when ignore_on_error = False</p></li>
+<li><p><strong>TypeError</strong> – artifact_type is not of type TestStepArtifactType</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>this object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#testguide_report_generator.TestStep" title="testguide_report_generator.TestStep">TestStep</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestStep.create_json_repr">
+<span class="sig-name descname"><span class="pre">create_json_repr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestStep.create_json_repr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">See<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestStep.get_artifacts">
+<span class="sig-name descname"><span class="pre">get_artifacts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestStep.get_artifacts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the TestSteps artifacts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of TestStepArtifact</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestStep.set_description">
+<span class="sig-name descname"><span class="pre">set_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestStep.set_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the test case description.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>desc</strong> (<em>str</em>) – teststep description</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>this object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>teststep</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="testguide_report_generator.TestStepArtifact">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">TestStepArtifact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">artifact_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.TestStepArtifactType" title="testguide_report_generator.model.TestCase.TestStepArtifactType"><span class="pre">TestStepArtifactType</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestStepArtifact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Artifact" title="testguide_report_generator.model.TestCase.Artifact"><code class="xref py py-class docutils literal notranslate"><span class="pre">Artifact</span></code></a></p>
+<p>Artifact attached to an ATX-TestStep</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestStepArtifact.create_json_repr">
+<span class="sig-name descname"><span class="pre">create_json_repr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestStepArtifact.create_json_repr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">See<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestStepArtifact.get_artifact_type">
+<span class="sig-name descname"><span class="pre">get_artifact_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestStepArtifact.get_artifact_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the artifacts type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#testguide_report_generator.TestStepArtifactType" title="testguide_report_generator.TestStepArtifactType">TestStepArtifactType</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="testguide_report_generator.TestStepArtifactType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">TestStepArtifactType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestStepArtifactType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Possible types of artifacts attached to test steps</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="testguide_report_generator.TestStepArtifactType.IMAGE">
+<span class="sig-name descname"><span class="pre">IMAGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#testguide_report_generator.TestStepArtifactType.IMAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="testguide_report_generator.TestStepFolder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">TestStepFolder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestStepFolder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr" title="testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></a></p>
+<p>ATX-TestStepFolder. Each teststep folder must contain at least one TestStep to be test.guide
+compliant.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestStepFolder.add_teststep">
+<span class="sig-name descname"><span class="pre">add_teststep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">teststep</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestStepFolder.add_teststep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a TestStep or TestStepFolder to the teststep folder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>teststep</strong> (<a class="reference internal" href="#testguide_report_generator.TestStep" title="testguide_report_generator.TestStep"><em>TestStep</em></a><em> or </em><a class="reference internal" href="#testguide_report_generator.TestStepFolder" title="testguide_report_generator.TestStepFolder"><em>TestStepFolder</em></a>) – TestStep to be added</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – the argument is not a TestStep or TestStepFolder</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>this object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#testguide_report_generator.TestStepFolder" title="testguide_report_generator.TestStepFolder">TestStepFolder</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestStepFolder.create_json_repr">
+<span class="sig-name descname"><span class="pre">create_json_repr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestStepFolder.create_json_repr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">See<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestStepFolder.get_teststeps">
+<span class="sig-name descname"><span class="pre">get_teststeps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestStepFolder.get_teststeps" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>all teststeps of the TestStepFolder</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestStepFolder.set_description">
+<span class="sig-name descname"><span class="pre">set_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestStepFolder.set_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the test case description.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>desc</strong> (<em>str</em>) – teststep description</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>this object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>teststep</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="testguide_report_generator.TestSuite">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">TestSuite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestSuite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr" title="testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></a></p>
+<p>ATX-TestSuite. This is the top-level element from which the <cite>.json</cite> report will be generated. A
+testsuite must contain at least one <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code> or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TestCaseFolder</span></code> to be test.guide compliant</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="testguide_report_generator.TestSuite.NAME_ERROR_MSG">
+<span class="sig-name descname"><span class="pre">NAME_ERROR_MSG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">name</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">TestSuite</span> <span class="pre">must</span> <span class="pre">have</span> <span class="pre">a</span> <span class="pre">length</span> <span class="pre">between</span> <span class="pre">1-120</span> <span class="pre">characters.'</span></em><a class="headerlink" href="#testguide_report_generator.TestSuite.NAME_ERROR_MSG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestSuite.add_testcase">
+<span class="sig-name descname"><span class="pre">add_testcase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">testcase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.TestCase" title="testguide_report_generator.model.TestCase.TestCase"><span class="pre">TestCase</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCaseFolder.TestCaseFolder" title="testguide_report_generator.model.TestCaseFolder.TestCaseFolder"><span class="pre">TestCaseFolder</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestSuite.add_testcase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a TestCase or TestCaseFolder to the TestSuite.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>testcase</strong> (<a class="reference internal" href="#testguide_report_generator.TestCase" title="testguide_report_generator.TestCase"><em>TestCase</em></a><em> or </em><a class="reference internal" href="#testguide_report_generator.TestCaseFolder" title="testguide_report_generator.TestCaseFolder"><em>TestCaseFolder</em></a>) – testcase to be added</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p>ValueError, if the argument is not a TestCase or TestCaseFolder, or if an empty
+TestCaseFolder was added</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>this object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#testguide_report_generator.TestSuite" title="testguide_report_generator.TestSuite">TestSuite</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestSuite.create_json_repr">
+<span class="sig-name descname"><span class="pre">create_json_repr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#testguide_report_generator.TestSuite.create_json_repr" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;see: <code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.TestSuite.get_testcases">
+<span class="sig-name descname"><span class="pre">get_testcases</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#testguide_report_generator.TestSuite.get_testcases" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Testcases or TestCaseFolders</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="testguide_report_generator.Verdict">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">Verdict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Verdict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>ATX-Verdicts.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="testguide_report_generator.Verdict.ERROR">
+<span class="sig-name descname"><span class="pre">ERROR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#testguide_report_generator.Verdict.ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="testguide_report_generator.Verdict.FAILED">
+<span class="sig-name descname"><span class="pre">FAILED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#testguide_report_generator.Verdict.FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="testguide_report_generator.Verdict.INCONCLUSIVE">
+<span class="sig-name descname"><span class="pre">INCONCLUSIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#testguide_report_generator.Verdict.INCONCLUSIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="testguide_report_generator.Verdict.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#testguide_report_generator.Verdict.NONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="testguide_report_generator.Verdict.PASSED">
+<span class="sig-name descname"><span class="pre">PASSED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#testguide_report_generator.Verdict.PASSED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
