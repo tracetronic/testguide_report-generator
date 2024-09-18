@@ -5,7 +5,6 @@
 """
 Example Script.
 """
-
 from testguide_report_generator import TestSuite, TestCase, TestStep, TestStepFolder, Verdict, Parameter, \
     Direction, Review, TestStepArtifactType, TestCaseFolder, Generator
 
@@ -32,9 +31,11 @@ def create_testsuite():
     teststep.add_artifact("docs/images/Logo_TEST-GUIDE_rgb_SCREEN.png", TestStepArtifactType.IMAGE)
     testcase.add_execution_teststep(teststep)
     testcase.add_artifact("testguide_report_generator/schema/schema.json", False)
-    testcase.set_review(Review("Review-Comment", "Reviewer", 1423576765001))
-    testsuite.add_testcase(testcase)
 
+    review = Review("Review-Comment", "Reviewer",1423576765001)
+
+    testcase.set_review(review)
+    testsuite.add_testcase(testcase)
     testcase_folder = TestCaseFolder("SubFolder")
     testcase_folder.add_testcase(TestCase("TestCase_FAILED", 1423536765000, Verdict.FAILED))
     testsuite.add_testcase(testcase_folder)

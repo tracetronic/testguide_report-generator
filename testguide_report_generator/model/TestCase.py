@@ -208,26 +208,170 @@ class Review(Json2AtxRepr):
     def __init__(self, comment: str, author: str, timestamp: int):
         """Constructor
 
-        :param comment: Review comment (10-10000 characters)
+        :param comment: Review comment (1-10000 characters)
         :type comment: str
         :param author: Review author
         :type author: str
         :param timestamp: UTC timestamp in seconds
         :rtype timestamp: int
         """
+        if not 1 <= len(comment) <= 10000:
+            raise ValueError("Comment length must be between 1 and 10000 characters.")
         self.__comment = comment
+        if len(author) > 512:
+            raise ValueError("Author length cannot exceed 512 characters.")
         self.__author = author
+
         self.__timestamp = timestamp
+        self.__summary: str | None = None
+        self.__verdict: Verdict | None = None
+        self.__defect: str | None = None
+        self.__defect_priority: str | None = None
+        self.__tickets: list[str] = []
+        self.__invalid_run: bool = False
+        self.__custom_evaluation: str | None = None
+        self.__tags: list[str] = []
+        self.__contacts: list[str] = []
+
+    def set_verdict(self, verdict: Verdict):
+        """
+        Set the verdict for the review.
+
+        :param verdict: Review verdict
+        :type verdict: Verdict
+        :return: this object
+        :rtype: Review
+        """
+        if not isinstance(verdict, Verdict):
+            raise TypeError("Argument 'verdict' must be of type 'Verdict'.")
+        self.__verdict = verdict
+        return self
+
+    def set_summary(self, summary: str):
+        """
+        Set the review summary.
+
+        :param summary: Review summary
+        :type summary: str
+        :return: this object
+        :rtype: Review
+        """
+        if len(summary) > 512:
+            raise ValueError("Summary length cannot exceed 512 characters.")
+        self.__summary = summary
+        return self
+
+    def set_defect(self, defect: str):
+        """
+        Set the defect information.
+
+        :param defect: Review defect
+        :type defect: str
+        :return: this object
+        :rtype: Review
+        """
+        self.__defect = defect
+        return self
+
+    def set_defect_priority(self, priority: str | None):
+        """
+        Set the defect priority.
+
+        :param priority: Review priority
+        :type priority: str
+        :return: this object
+        :rtype: Review
+        """
+        self.__defect_priority = priority
+        return self
+
+    def add_tickets(self, tickets: list[str]):
+        """
+        Add tickets to the review.
+
+        :param tickets: list of Review tickets
+        :type tickets: list
+        :return: this object
+        :rtype: Review
+        """
+        for ticket in tickets:
+            if len(ticket) > 512:
+                raise ValueError("Ticket length exceeds the maximum allowed (512 characters).")
+        self.__tickets.extend(tickets)
+        return self
+
+    def set_invalid_run(self, invalid: bool):
+        """
+        Mark the review as an invalid run.
+
+        :param invalid: Review invalid
+        :type invalid: bool
+        :return: this object
+        :rtype: Review
+        """
+        self.__invalid_run = invalid
+        return self
+
+    def set_custom_evaluation(self, evaluation: str):
+        """
+        Set a custom evaluation message.
+
+        :param evaluation: Review evaluation
+        :type evaluation: str
+        :return: this object
+        :rtype: Review
+        """
+        self.__custom_evaluation = evaluation
+        return self
+
+    def add_tags(self, tags: list[str]):
+        """
+        Add multiple tags to the review.
+
+        :param tags: list of Review tags
+        :type tags: list
+        :return: this object
+        :rtype: Review
+        """
+        self.__tags.extend(tags)
+        return self
+
+    def add_contacts(self, contacts: list[str]):
+        """Add  contacts to the review.
+
+        :param contacts: list of Review contacts
+        :type contacts: list
+        :return: this object
+        :rtype: Review
+        """
+        for contact in contacts:
+            if len(contact) > 255:
+                raise ValueError("Contact length exceeds the maximum allowed (255 characters).")
+        self.__contacts.extend(contacts)
+        return self
 
     def create_json_repr(self):
         """
         :see: :class:`Json2AtxRepr<testguide_report_generator.Json2AtxRepr>`
         """
         result = {
-                 "comment": self.__comment,
-                 "timestamp": self.__timestamp,
-                 "author": self.__author
-            }
+            "comment": self.__comment,
+            "timestamp": self.__timestamp,
+            "verdict": self.__verdict,
+            "author": self.__author,
+            "summary": self.__summary,
+            "defect": self.__defect,
+            "defectPriority": self.__defect_priority,
+            "tickets": self.__tickets,
+            "invalidRun": self.__invalid_run,
+            "customEvaluation": self.__custom_evaluation,
+            "tags": self.__tags,
+            "contacts": self.__contacts
+        }
+        if self.__verdict:
+            result["verdict"] = self.__verdict.name
+        else:
+            result["verdict"] = "PASSED"
         return result
 
 
