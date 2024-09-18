@@ -285,7 +285,7 @@ class Review(Json2AtxRepr):
         self.__defect_priority = priority
         return self
 
-    def add_tickets(self, tickets: list[str]):
+    def add_tickets(self, tickets: List[str]):
         """
         Add tickets to the review.
 
@@ -324,7 +324,7 @@ class Review(Json2AtxRepr):
         self.__custom_evaluation = evaluation
         return self
 
-    def add_tags(self, tags: list[str]):
+    def add_tags(self, tags: List[str]):
         """
         Add multiple tags to the review.
 
@@ -336,7 +336,7 @@ class Review(Json2AtxRepr):
         self.__tags.extend(tags)
         return self
 
-    def add_contacts(self, contacts: list[str]):
+    def add_contacts(self, contacts: List[str]):
         """Add  contacts to the review.
 
         :param contacts: list of Review contacts
