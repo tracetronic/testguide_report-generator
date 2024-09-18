@@ -231,4 +231,6 @@ class TestAttribute:
 class TestReview:
     def test_correct_json_repr(self, review):
         json_str = json.dumps(review.create_json_repr())
-        assert '{"comment": "comment", "timestamp": 1670254005, "author": "chucknorris"}' == json_str
+        assert ('{"comment": "comment", "timestamp": 1670254005, "verdict": "PASSED", "author": "chucknorris", '
+                '"summary": null, "defect": null, "defectPriority": null, "tickets": [], "invalidRun": false, '
+                '"customEvaluation": null, "tags": [], "contacts": []}') == json_str
