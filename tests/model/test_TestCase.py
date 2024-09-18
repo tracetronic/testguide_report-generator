@@ -7,7 +7,7 @@ import json
 from unittest.mock import patch
 
 from testguide_report_generator.model.TestCase import (TestCase, TestStep, Verdict, Artifact, TestStepArtifact,
-                                                       TestStepArtifactType)
+                                                       TestStepArtifactType, Review)
 from testguide_report_generator.util.ValidityChecks import gen_error_msg
 
 
@@ -234,3 +234,93 @@ class TestReview:
         assert ('{"comment": "comment", "timestamp": 1670254005, "verdict": "PASSED", "author": "chucknorris", '
                 '"summary": null, "defect": null, "defectPriority": null, "tickets": [], "invalidRun": false, '
                 '"customEvaluation": null, "tags": [], "contacts": []}') == json_str
+
+    def test_default(self, review):
+        review = Review("Review-Comment", "Reviewer", 1423576765001)
+        json_str = json.dumps(review.create_json_repr())
+        assert ('{"comment": "Review-Comment", "timestamp": 1423576765001, "verdict": "PASSED", "author": "Reviewer", '
+                '"summary": null, "defect": null, "defectPriority": null, "tickets": [], "invalidRun": false, '
+                '"customEvaluation": null, "tags": [], "contacts": []}') == json_str
+
+    @pytest.mark.parametrize(
+        "comment, expected_error",
+        [
+            ("x" * 10001, "Comment length must be between 1 and 10000 characters."),
+            ("x" * 0, "Comment length must be between 1 and 10000 characters."),
+        ]
+    )
+    def test_comment_error(self, comment, expected_error):
+        with pytest.raises(ValueError) as error:
+            Review(comment, "Reviewer", 1423576765001)
+
+        assert str(error.value) == "Comment length must be between 1 and 10000 characters."
+
+    def test_author_error(self, review):
+        with pytest.raises(ValueError) as error:
+            Review("Review-Comment", "x" * 513, 1423576765001)
+
+        assert str(error.value) == "Author length cannot exceed 512 characters."
+
+    def test_set_verdict_error(self, review):
+        review.set_verdict(Verdict.PASSED)
+        assert review._Review__verdict == Verdict.PASSED
+
+        with pytest.raises(TypeError) as error:
+            review.set_verdict("invalid_verdict")
+
+        assert str(error.value) == "Argument 'verdict' must be of type 'Verdict'."
+
+    def test_json_verdict(self, review):
+        review.set_verdict(Verdict.PASSED)
+        json_repr = review.create_json_repr()
+
+        assert json_repr["verdict"] == Verdict.PASSED.name
+
+    def test_set_summary_error(self, review):
+        review.set_summary("This is a valid summary.")
+        assert review._Review__summary == "This is a valid summary."
+
+        with pytest.raises(ValueError) as error:
+            review.set_summary("x" * 513)
+
+        assert str(error.value) == "Summary length cannot exceed 512 characters."
+
+    def test_set_defect(self, review):
+        review.set_defect("Some Defect")
+        assert review._Review__defect == "Some Defect"
+
+    def test_set_defect_priority(self, review):
+        review.set_defect_priority("High")
+        assert review._Review__defect_priority == "High"
+
+    def test_add_tickets_error(self, review):
+        with pytest.raises(ValueError) as error:
+            review.add_tickets(["x" * 513])
+
+        assert str(error.value) == "Ticket length exceeds the maximum allowed (512 characters)."
+
+    def test_add_tickets(self, review):
+        review.add_tickets(["Ticket 1", "Ticket 2"])
+        assert review._Review__tickets == ["Ticket 1", "Ticket 2"]
+
+    def test_set_invalid_run(self, review):
+        review.set_invalid_run(True)
+        assert review._Review__invalid_run is True
+
+    def test_set_custom_evaluation(self, review):
+        review.set_custom_evaluation("Custom evaluation message")
+        assert review._Review__custom_evaluation == "Custom evaluation message"
+
+    def test_add_tags(self, review):
+        review.add_tags(["Tag1", "Tag2"])
+        assert review._Review__tags == ["Tag1", "Tag2"]
+
+    def test_add_contacts_error(self, review):
+        with pytest.raises(ValueError) as error:
+            review.add_contacts(["x" * 256])
+
+        assert str(error.value) == "Contact length exceeds the maximum allowed (255 characters)."
+
+    def test_add_contacts(self, review):
+        review.add_contacts(["Contact1", "Contact2"])
+        assert review._Review__contacts == ["Contact1", "Contact2"]
