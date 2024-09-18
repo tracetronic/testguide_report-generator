@@ -273,7 +273,7 @@ class Review(Json2AtxRepr):
         self.__defect = defect
         return self
 
-    def set_defect_priority(self, priority: str | None):
+    def set_defect_priority(self, priority: str):
         """
         Set the defect priority.
 
