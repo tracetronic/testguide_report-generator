@@ -32,7 +32,7 @@ def create_testsuite():
     testcase.add_execution_teststep(teststep)
     testcase.add_artifact("testguide_report_generator/schema/schema.json", False)
 
-    review = Review("Review-Comment", "Reviewer",1423576765001)
+    review = Review("Review-Comment", "Reviewer", 1423576765001)
 
     testcase.set_review(review)
     testsuite.add_testcase(testcase)

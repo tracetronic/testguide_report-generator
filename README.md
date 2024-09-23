@@ -20,7 +20,7 @@ were designed in such a way that you can create your own testsuite from these ob
 formats into a *.json* which test.guide can handle. With this generator, it is no more necessary to convert non-ATX formats directly
 into a *.json* for test.guide. Instead, the delivered Python classes are prefilled in a simple manner, and the *.json* is
 generated for you. On top of this, early format checks are conducted such that you will be notified right away if something is not
-compliant to the *json* schema. The currently supported test.guide *json* schema version is **v3.7.0**.
+compliant to the *json* schema. The currently supported test.guide *json* schema can be found [here](./testguide_report_generator/schema/schema.json).
 
 <img src="https://github.com/tracetronic/testguide_report-generator/blob/main/docs/images/Logo_TEST-GUIDE_rgb_SCREEN.png?raw=true" align="left" alt="test.guide" width="300">
 

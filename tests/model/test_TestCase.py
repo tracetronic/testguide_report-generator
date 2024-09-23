@@ -227,7 +227,6 @@ class TestAttribute:
         json_str = json.dumps(attribute.create_json_repr())
         assert '{"key": "an", "value": "attribute"}' == json_str
 
-
 class TestReview:
     def test_correct_json_repr(self, review):
         json_str = json.dumps(review.create_json_repr())
@@ -250,10 +249,8 @@ class TestReview:
         ]
     )
     def test_comment_error(self, comment, expected_error):
-        with pytest.raises(ValueError) as error:
+        with pytest.raises(ValueError, match=expected_error):
             Review(comment, "Reviewer", 1423576765001)
-
-        assert str(error.value) == "Comment length must be between 1 and 10000 characters."
 
     def test_author_error(self, review):
         with pytest.raises(ValueError) as error:
@@ -262,36 +259,16 @@ class TestReview:
         assert str(error.value) == "Author length cannot exceed 512 characters."
 
     def test_set_verdict_error(self, review):
-        review.set_verdict(Verdict.PASSED)
-        assert review._Review__verdict == Verdict.PASSED
-
         with pytest.raises(TypeError) as error:
             review.set_verdict("invalid_verdict")
 
         assert str(error.value) == "Argument 'verdict' must be of type 'Verdict'."
 
-    def test_json_verdict(self, review):
-        review.set_verdict(Verdict.PASSED)
-        json_repr = review.create_json_repr()
-
-        assert json_repr["verdict"] == Verdict.PASSED.name
-
     def test_set_summary_error(self, review):
-        review.set_summary("This is a valid summary.")
-        assert review._Review__summary == "This is a valid summary."
-
         with pytest.raises(ValueError) as error:
             review.set_summary("x" * 513)
 
         assert str(error.value) == "Summary length cannot exceed 512 characters."
-
-    def test_set_defect(self, review):
-        review.set_defect("Some Defect")
-        assert review._Review__defect == "Some Defect"
-
-    def test_set_defect_priority(self, review):
-        review.set_defect_priority("High")
-        assert review._Review__defect_priority == "High"
 
     def test_add_tickets_error(self, review):
         with pytest.raises(ValueError) as error:
@@ -299,28 +276,31 @@ class TestReview:
 
         assert str(error.value) == "Ticket length exceeds the maximum allowed (512 characters)."
 
-    def test_add_tickets(self, review):
-        review.add_tickets(["Ticket 1", "Ticket 2"])
-        assert review._Review__tickets == ["Ticket 1", "Ticket 2"]
-
-    def test_set_invalid_run(self, review):
-        review.set_invalid_run(True)
-        assert review._Review__invalid_run is True
-
-    def test_set_custom_evaluation(self, review):
-        review.set_custom_evaluation("Custom evaluation message")
-        assert review._Review__custom_evaluation == "Custom evaluation message"
-
-    def test_add_tags(self, review):
-        review.add_tags(["Tag1", "Tag2"])
-        assert review._Review__tags == ["Tag1", "Tag2"]
-
     def test_add_contacts_error(self, review):
         with pytest.raises(ValueError) as error:
             review.add_contacts(["x" * 256])
 
         assert str(error.value) == "Contact length exceeds the maximum allowed (255 characters)."
 
-    def test_add_contacts(self, review):
+    def test_full_review_object(self, review):
+        review.set_verdict(Verdict.PASSED)
+        review.set_summary("This is a valid summary.")
+        review.set_defect("Some Defect")
+        review.set_defect_priority("High")
+        review.add_tickets(["Ticket 1", "Ticket 2"])
+        review.set_invalid_run(True)
+        review.set_custom_evaluation("Custom evaluation message")
+        review.add_tags(["Tag1", "Tag2"])
         review.add_contacts(["Contact1", "Contact2"])
-        assert review._Review__contacts == ["Contact1", "Contact2"]
+
+        json_repr = review.create_json_repr()
+
+        assert json_repr["verdict"] == Verdict.PASSED.name
+        assert json_repr["summary"] == "This is a valid summary."
+        assert json_repr["defect"] == "Some Defect"
+        assert json_repr["defectPriority"] == "High"
+        assert json_repr["tickets"] == ["Ticket 1", "Ticket 2"]
+        assert json_repr["invalidRun"] is True
+        assert json_repr["customEvaluation"] == "Custom evaluation message"
+        assert json_repr["tags"] == ["Tag1", "Tag2"]
+        assert json_repr["contacts"] == ["Contact1", "Contact2"]

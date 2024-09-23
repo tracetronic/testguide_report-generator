@@ -217,11 +217,12 @@ class Review(Json2AtxRepr):
         """
         if not 1 <= len(comment) <= 10000:
             raise ValueError("Comment length must be between 1 and 10000 characters.")
-        self.__comment = comment
+
         if len(author) > 512:
             raise ValueError("Author length cannot exceed 512 characters.")
-        self.__author = author
 
+        self.__comment = comment
+        self.__author = author
         self.__timestamp = timestamp
         self.__summary: str | None = None
         self.__verdict: Verdict | None = None
