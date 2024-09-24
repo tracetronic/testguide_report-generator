@@ -196,7 +196,16 @@
           "review": {
             "comment": "comment",
             "timestamp": 1670254005,
-            "author": "chucknorris"
+            "verdict": "PASSED",
+            "author": "chucknorris",
+            "summary": null,
+            "defect": null,
+            "defectPriority": null,
+            "tickets": [],
+            "invalidRun": false,
+            "customEvaluation": null,
+            "tags": [],
+            "contacts": []
           }
         }
       ]

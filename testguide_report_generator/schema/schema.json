@@ -23,8 +23,9 @@
   ],
   "definitions": {
     "TimeStamp": {
-      "type": "number",
-      "minimum": 0
+      "type": "integer",
+      "minimum": 0,
+      "description": "A point in time. Expressed as number of milliseconds since the Unix Epoch, i.e. 00:00:00 UTC on January 1st, 1970."
     },
     "OptionalString": {
       "type": [
@@ -84,8 +85,9 @@
           "$ref": "#/definitions/TimeStamp"
         },
         "executionTime": {
-          "type": "number",
-          "minimum": 0
+          "type": "integer",
+          "minimum": 0,
+          "description": "The amount of time that this test case execution took to run in seconds."
         },
         "constants": {
           "type": "array",
@@ -411,6 +413,22 @@
         },
         "invalidRun": {
           "type": "boolean"
+        },
+        "customEvaluation": {
+          "$ref": "#/definitions/OptionalString"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contacts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 255
+          }
         }
       },
       "required": [
