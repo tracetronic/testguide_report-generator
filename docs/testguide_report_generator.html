@@ -69,7 +69,16 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Review"><code class="docutils literal notranslate"><span class="pre">Review</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Review.add_contacts"><code class="docutils literal notranslate"><span class="pre">Review.add_contacts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Review.add_tags"><code class="docutils literal notranslate"><span class="pre">Review.add_tags()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Review.add_tickets"><code class="docutils literal notranslate"><span class="pre">Review.add_tickets()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Review.create_json_repr"><code class="docutils literal notranslate"><span class="pre">Review.create_json_repr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Review.set_custom_evaluation"><code class="docutils literal notranslate"><span class="pre">Review.set_custom_evaluation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Review.set_defect"><code class="docutils literal notranslate"><span class="pre">Review.set_defect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Review.set_defect_priority"><code class="docutils literal notranslate"><span class="pre">Review.set_defect_priority()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Review.set_invalid_run"><code class="docutils literal notranslate"><span class="pre">Review.set_invalid_run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Review.set_summary"><code class="docutils literal notranslate"><span class="pre">Review.set_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Review.set_verdict"><code class="docutils literal notranslate"><span class="pre">Review.set_verdict()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.TestCase"><code class="docutils literal notranslate"><span class="pre">TestCase</span></code></a><ul>
@@ -399,11 +408,164 @@ please conduct the README.</p>
 <dd><p>Bases: <a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr" title="testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></a></p>
 <p>TestCase review.</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Review.add_contacts">
+<span class="sig-name descname"><span class="pre">add_contacts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contacts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review.add_contacts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add  contacts to the review.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>contacts</strong> (<em>list</em>) – list of Review contacts</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>this object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#testguide_report_generator.Review" title="testguide_report_generator.Review">Review</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Review.add_tags">
+<span class="sig-name descname"><span class="pre">add_tags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review.add_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add multiple tags to the review.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tags</strong> (<em>list</em>) – list of Review tags</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>this object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#testguide_report_generator.Review" title="testguide_report_generator.Review">Review</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Review.add_tickets">
+<span class="sig-name descname"><span class="pre">add_tickets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tickets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review.add_tickets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add tickets to the review.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tickets</strong> (<em>list</em>) – list of Review tickets</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>this object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#testguide_report_generator.Review" title="testguide_report_generator.Review">Review</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="testguide_report_generator.Review.create_json_repr">
 <span class="sig-name descname"><span class="pre">create_json_repr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review.create_json_repr" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">See<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Review.set_custom_evaluation">
+<span class="sig-name descname"><span class="pre">set_custom_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evaluation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review.set_custom_evaluation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a custom evaluation message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>evaluation</strong> (<em>str</em>) – Review evaluation</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>this object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#testguide_report_generator.Review" title="testguide_report_generator.Review">Review</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Review.set_defect">
+<span class="sig-name descname"><span class="pre">set_defect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">defect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review.set_defect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the defect information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>defect</strong> (<em>str</em>) – Review defect</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>this object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#testguide_report_generator.Review" title="testguide_report_generator.Review">Review</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Review.set_defect_priority">
+<span class="sig-name descname"><span class="pre">set_defect_priority</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review.set_defect_priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the defect priority.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>priority</strong> (<em>str</em>) – Review priority</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>this object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#testguide_report_generator.Review" title="testguide_report_generator.Review">Review</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Review.set_invalid_run">
+<span class="sig-name descname"><span class="pre">set_invalid_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">invalid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review.set_invalid_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark the review as an invalid run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>invalid</strong> (<em>bool</em>) – Review invalid</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>this object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#testguide_report_generator.Review" title="testguide_report_generator.Review">Review</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Review.set_summary">
+<span class="sig-name descname"><span class="pre">set_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">summary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review.set_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the review summary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>summary</strong> (<em>str</em>) – Review summary</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>this object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#testguide_report_generator.Review" title="testguide_report_generator.Review">Review</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="testguide_report_generator.Review.set_verdict">
+<span class="sig-name descname"><span class="pre">set_verdict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Verdict" title="testguide_report_generator.model.TestCase.Verdict"><span class="pre">Verdict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review.set_verdict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the verdict for the review.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>verdict</strong> (<a class="reference internal" href="#testguide_report_generator.Verdict" title="testguide_report_generator.Verdict"><em>Verdict</em></a>) – Review verdict</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>this object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#testguide_report_generator.Review" title="testguide_report_generator.Review">Review</a></p>
 </dd>
 </dl>
 </dd></dl>
