@@ -253,34 +253,24 @@ class TestReview:
             Review(comment, "Reviewer", 1423576765001)
 
     def test_author_error(self, review):
-        with pytest.raises(ValueError) as error:
+        with pytest.raises(ValueError, match="Author length cannot exceed 512 characters."):
             Review("Review-Comment", "x" * 513, 1423576765001)
 
-        assert str(error.value) == "Author length cannot exceed 512 characters."
-
     def test_set_verdict_error(self, review):
-        with pytest.raises(TypeError) as error:
+        with pytest.raises(TypeError, match="Argument 'verdict' must be of type 'Verdict'."):
             review.set_verdict("invalid_verdict")
 
-        assert str(error.value) == "Argument 'verdict' must be of type 'Verdict'."
-
     def test_set_summary_error(self, review):
-        with pytest.raises(ValueError) as error:
+        with pytest.raises(ValueError, match="Summary length cannot exceed 512 characters."):
             review.set_summary("x" * 513)
 
-        assert str(error.value) == "Summary length cannot exceed 512 characters."
-
     def test_add_tickets_error(self, review):
-        with pytest.raises(ValueError) as error:
+        with pytest.raises(ValueError, match=r"Ticket length exceeds the maximum allowed \(512 characters\)."):
             review.add_tickets(["x" * 513])
 
-        assert str(error.value) == "Ticket length exceeds the maximum allowed (512 characters)."
-
     def test_add_contacts_error(self, review):
-        with pytest.raises(ValueError) as error:
+        with pytest.raises(ValueError, match=r"Contact length exceeds the maximum allowed \(255 characters\)."):
             review.add_contacts(["x" * 256])
-
-        assert str(error.value) == "Contact length exceeds the maximum allowed (255 characters)."
 
     def test_full_review_object(self, review):
         review.set_verdict(Verdict.PASSED)
