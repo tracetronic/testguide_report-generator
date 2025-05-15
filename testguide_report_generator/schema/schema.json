@@ -38,7 +38,8 @@
         "string",
         "null"
       ],
-      "maxLength": 6144
+      "maxLength": 6144,
+      "$comment": "Simple HTML tags can be used for formatting the description; invalid HTML tags and tags that are not allowed (e.g. <script>) are automatically removed."
     },
     "ShortNameString": {
       "type": "string",
@@ -483,7 +484,11 @@
           	"IMAGE"
           ]
         }
-      }
+      },
+      "required": [
+        "path",
+        "artifactType"
+      ]
   	}
   }
 }
