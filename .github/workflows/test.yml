@@ -48,7 +48,9 @@ jobs:
       - name: Download test coverage report
         uses: actions/download-artifact@v4
         with:
-          name: test-coverage-report
+          path: test-coverage-report
+          pattern: test-coverage-report-*
+          merge-multiple: true
       - name: Get Cover
         uses: orgoro/coverage@v3
         with:
