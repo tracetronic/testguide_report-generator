@@ -22,7 +22,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install poetry
-        run: pip3 install poetry
+        run: |
+          pip3 install poetry
+          poetry self add poetry-plugin-export
       - name: Active Python version
         run: |
           echo "Active Python version is..."
