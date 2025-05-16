@@ -37,8 +37,8 @@ jobs:
       - name: Upload test coverage report
         uses: actions/upload-artifact@v4
         with:
-          name: test-coverage-report
-          path: coverage.xml
+          name: test-coverage-report-${{ matrix.py_version }}
+          path: coverage-${{ matrix.py_version }}.xml
 
   publish-coverage:
     runs-on: ubuntu-latest
