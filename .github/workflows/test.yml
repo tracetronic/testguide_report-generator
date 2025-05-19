@@ -55,8 +55,9 @@ jobs:
           merge-multiple: true
       - name: Find latest coverage report
         run: |
-          echo "LATEST_COVERAGE_FILE=$(ls ${{ env.ARTIFACT_FOLDER }}/ | sort -V | tail -n 1)" >> $GITHUB_ENV
-          echo "Latest coverage version: ${{ env.LATEST_COVERAGE_FILE }}"
+          latest_file=$(ls ${{ env.ARTIFACT_FOLDER }}/ | sort -V | tail -n 1)
+          echo "LATEST_COVERAGE_FILE=$latest_file" >> $GITHUB_ENV
+          echo "Latest coverage file version: $latest_file"
       - name: Get Cover
         uses: orgoro/coverage@v3
         with:
