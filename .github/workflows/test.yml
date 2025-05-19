@@ -44,21 +44,21 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
     needs: test
+    env:
+      ARTIFACT_FOLDER: test-coverage-report
     steps:
       - name: Download test coverage report
         uses: actions/download-artifact@v4
         with:
-          path: test-coverage-report
-          pattern: test-coverage-report-*
+          path: ${{ env.ARTIFACT_FOLDER }}
+          pattern: ${{ env.ARTIFACT_FOLDER }}-*
           merge-multiple: true
-      - name: echo
+      - name: Find latest coverage report
         run: |
-          ls
-          cd test-coverage-report
-          ls
+          echo "LATEST_COVERAGE_FILE=$(ls ${{ env.ARTIFACT_FOLDER }}/ | sort -V | tail -n 1)" >> $GITHUB_ENV
       - name: Get Cover
         uses: orgoro/coverage@v3
         with:
-          coverageFile: test-coverage-report/coverage-3.12.xml
+          coverageFile: ${{ env.ARTIFACT_FOLDER }}/${{ env.LATEST_COVERAGE_FILE }}
           token: ${{ secrets.GITHUB_TOKEN }}
           thresholdAll: 0.99
