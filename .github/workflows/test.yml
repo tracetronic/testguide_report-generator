@@ -51,9 +51,14 @@ jobs:
           path: test-coverage-report
           pattern: test-coverage-report-*
           merge-multiple: true
+      - name: echo
+        run: |
+          ls
+          cd test-coverage-report
+          ls
       - name: Get Cover
         uses: orgoro/coverage@v3
         with:
-          coverageFile: coverage.xml
+          coverageFile: test-coverage-report/coverage-3.12.xml
           token: ${{ secrets.GITHUB_TOKEN }}
           thresholdAll: 0.99
