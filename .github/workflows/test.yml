@@ -31,27 +31,36 @@ jobs:
       - name: Install dependencies
         run: poetry install --without workflow --no-root
       - name: Execute Tests and create test coverage report
-        run: poetry run pytest tests --cov=testguide_report_generator --cov-report=xml:coverage.xml
+        run: poetry run pytest tests --cov=testguide_report_generator --cov-report=xml:coverage-${{ matrix.py_version }}.xml
       - name: Execute Test
         run: poetry run pytest tests
       - name: Upload test coverage report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: test-coverage-report
-          path: coverage.xml
+          name: test-coverage-report-${{ matrix.py_version }}
+          path: coverage-${{ matrix.py_version }}.xml
 
   publish-coverage:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
     needs: test
+    env:
+      ARTIFACT_FOLDER: test-coverage-report
     steps:
       - name: Download test coverage report
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
-          name: test-coverage-report
+          path: ${{ env.ARTIFACT_FOLDER }}
+          pattern: ${{ env.ARTIFACT_FOLDER }}-*
+          merge-multiple: true
+      - name: Find latest coverage report
+        run: |
+          latest_file=$(ls ${{ env.ARTIFACT_FOLDER }}/ | sort -V | tail -n 1)
+          echo "LATEST_COVERAGE_FILE=$latest_file" >> $GITHUB_ENV
+          echo "Latest coverage file version: $latest_file"
       - name: Get Cover
         uses: orgoro/coverage@v3
         with:
-          coverageFile: coverage.xml
+          coverageFile: ${{ env.ARTIFACT_FOLDER }}/${{ env.LATEST_COVERAGE_FILE }}
           token: ${{ secrets.GITHUB_TOKEN }}
           thresholdAll: 0.99
