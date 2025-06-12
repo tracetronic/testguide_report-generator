@@ -8,7 +8,7 @@
 This module contains the TestCaseFolder class.
 """
 
-from typing_extensions import Self
+from typing import Self
 from testguide_report_generator.model.TestCase import TestCase
 from testguide_report_generator.util.Json2AtxRepr import Json2AtxRepr
 from testguide_report_generator.util.ValidityChecks import check_name_length, gen_error_msg, \
