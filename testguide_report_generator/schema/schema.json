@@ -27,11 +27,19 @@
       "minimum": 0,
       "description": "A point in time. Expressed as number of milliseconds since the Unix Epoch, i.e. 00:00:00 UTC on January 1st, 1970."
     },
-    "OptionalString": {
+    "OptionalString64": {
       "type": [
         "string",
         "null"
-      ]
+      ],
+      "maxLength": 64
+    },
+    "OptionalString1024": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1024
     },
     "OptionalDescription": {
       "type": [
@@ -45,7 +53,21 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 120,
-      "$comment": "ATX standard provides a maximum of 128 characters for the shortnames, we allow 120 characters to buffer the ATX path reference assignment, like e.g. for Testcase_1 or Testcase_42."
+      "$comment": "ATX standard provides a maximum of 128 characters for the short names, we allow 120 characters to buffer the ATX path reference assignment, like e.g. for Testcase_1 or Testcase_42."
+    },
+    "StrictShortNameString": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z]([a-zA-Z0-9]|_[a-zA-Z0-9])*_?$",
+      "$comment": "Equivalent to an ATX short name."
+    },
+    "AttributeKeyString": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255,
+      "pattern": "^[-.0-9:A-Z_a-z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u037F-\u1FFF\u200C-\u200D\u203F\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]+$",
+      "$comment": "Derived from XSD's NMTOKEN with added length limit."
     },
     "TestStepNameString": {
       "type": "string",
@@ -133,7 +155,7 @@
           "$ref": "#/definitions/Review"
         },
         "paramSet": {
-          "$ref": "#/definitions/OptionalString"
+          "$ref": "#/definitions/OptionalString1024"
         },
         "environments": {
           "type": "array",
@@ -178,7 +200,7 @@
       "type": "object",
       "properties": {
         "key": {
-          "$ref": "#/definitions/ShortNameString"
+          "$ref": "#/definitions/AttributeKeyString"
         },
         "value": {
           "oneOf": [
@@ -203,7 +225,7 @@
       "type": "object",
       "properties": {
         "key": {
-          "$ref": "#/definitions/ShortNameString"
+          "$ref": "#/definitions/StrictShortNameString"
         },
         "value": {
           "oneOf": [
@@ -253,7 +275,7 @@
           "$ref": "#/definitions/Verdict"
         },
         "expectedResult": {
-          "$ref": "#/definitions/OptionalString"
+          "$ref": "#/definitions/OptionalString1024"
         },
         "testStepArtifacts": {
           "type": "array",
@@ -288,7 +310,7 @@
           "$ref": "#/definitions/Verdict"
         },
         "expectedResult": {
-          "$ref": "#/definitions/OptionalString"
+          "$ref": "#/definitions/OptionalString1024"
         },
         "teststeps": {
           "type": "array",
@@ -400,10 +422,10 @@
           "maxLength": 512
         },
         "defect": {
-          "$ref": "#/definitions/OptionalString"
+          "$ref": "#/definitions/OptionalString64"
         },
         "defectPriority": {
-          "$ref": "#/definitions/OptionalString"
+          "$ref": "#/definitions/OptionalString64"
         },
         "tickets": {
           "type": "array",
@@ -416,7 +438,7 @@
           "type": "boolean"
         },
         "customEvaluation": {
-          "$ref": "#/definitions/OptionalString"
+          "$ref": "#/definitions/OptionalString64"
         },
         "tags": {
           "type": "array",
@@ -481,7 +503,7 @@
         "artifactType": {
           "type": "string",
           "enum": [
-          	"IMAGE"
+            "IMAGE"
           ]
         }
       },
@@ -489,6 +511,6 @@
         "path",
         "artifactType"
       ]
-  	}
+    }
   }
 }
