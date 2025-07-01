@@ -7,6 +7,8 @@ import json
 from unittest.mock import patch
 
 from testguide_report_generator.model.TestCase import (
+    Attribute,
+    Constant,
     TestCase,
     TestStep,
     Verdict,
@@ -124,6 +126,43 @@ class TestTestCase:
             testcase.add_constant("")
 
         assert str(error.value) == "Argument constant must be of type Constant."
+
+    def test_add_empty_string_constant_error(self, testcase):
+        with pytest.raises(ValueError) as error:
+            testcase.add_constant(Constant("", ""))
+
+        assert (
+            str(error.value) == "Constant keys need to be structured following this pattern: "
+            "^[a-zA-Z]([a-zA-Z0-9]|_[a-zA-Z0-9])*_?$"
+        )
+
+    def test_add_long_string_constant_error(self, testcase):
+        with pytest.raises(ValueError) as error:
+            testcase.add_constant(Constant("x" * 129, ""))
+
+        assert (
+            str(error.value)
+            == f"The Constant:key must have a length between 1 and 128 characters. Was 129 -> {"x"* 129}"
+        )
+
+    def test_add_empty_string_attribute_error(self, testcase):
+        with pytest.raises(ValueError) as error:
+            testcase.add_attribute_pair(Attribute("", ""))
+
+        assert (
+            str(error.value) == "Attribute keys need to be structured following this pattern: "
+            "^[-.0-9:A-Z_a-z\u00b7\u00c0-\u00d6\u00d8-\u00f6\u00f8-\u037d\u037f-\u1fff\u200c-\u200d"
+            "\u203f\u2040\u2070-\u218f\u2c00-\u2fef\u3001-\ud7ff\uf900-\ufdcf\ufdf0-\ufffd]+$"
+        )
+
+    def test_add_long_string_attribute_error(self, testcase):
+        with pytest.raises(ValueError) as error:
+            testcase.add_attribute_pair(Attribute("x" * 256, ""))
+
+        assert (
+            str(error.value)
+            == f"The Attribute:key must have a length between 1 and 255 characters. Was 256 -> {"x"* 256}"
+        )
 
     def test_set_review_error(self, testcase):
         with pytest.raises(TypeError) as error:
