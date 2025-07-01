@@ -142,7 +142,7 @@ class TestTestCase:
 
         assert (
             str(error.value)
-            == "The Constant:key must have a length between 1 and 128 characters. Was 129 -> " + "x" * 256
+            == "The Constant:key must have a length between 1 and 128 characters. Was 129 -> " + "x" * 129
         )
 
     def test_add_empty_string_attribute_error(self, testcase):
