@@ -260,7 +260,7 @@ class TestReview:
         [
             (
                 "x" * 10001,
-                f"The Review:comment must have a length between 1 and 10000 characters. Was 10001 -> {"x" * 10001}",
+                "The Review:comment must have a length between 1 and 10000 characters. Was 10001 -> " + "x" * 10001,
             ),
             (
                 "x" * 0,
@@ -274,7 +274,7 @@ class TestReview:
         assert str(e.value) == error_msg
 
     def test_author_error(self, review):
-        error_msg = f"The Review:author must have a length between 0 and 512 characters. Was 513 -> {"x" * 513}"
+        error_msg = "The Review:author must have a length between 0 and 512 characters. Was 513 -> " + "x" * 513
         with pytest.raises(ValueError) as e:
             Review("Review-Comment", "x" * 513, 1423576765001)
         assert str(e.value) == error_msg
@@ -284,19 +284,19 @@ class TestReview:
             review.set_verdict("invalid_verdict")
 
     def test_set_summary_error(self, review):
-        error_msg = f"The Review:summary must have a length between 0 and 512 characters. Was 513 -> {"x" * 513}"
+        error_msg = "The Review:summary must have a length between 0 and 512 characters. Was 513 -> " + "x" * 513
         with pytest.raises(ValueError) as e:
             review.set_summary("x" * 513)
         assert str(e.value) == error_msg
 
     def test_add_tickets_error(self, review):
-        error_msg = f"The Review:ticket must have a length between 0 and 512 characters. Was 513 -> {"x" * 513}"
+        error_msg = "The Review:ticket must have a length between 0 and 512 characters. Was 513 -> " + "x" * 513
         with pytest.raises(ValueError) as e:
             review.add_tickets(["x" * 513])
         assert str(e.value) == error_msg
 
     def test_add_contacts_error(self, review):
-        error_msg = f"The Review:contact must have a length between 0 and 255 characters. Was 256 -> {"x" * 256}"
+        error_msg = "The Review:contact must have a length between 0 and 255 characters. Was 256 -> " + "x" * 256
         with pytest.raises(ValueError) as e:
             review.add_contacts(["x" * 256])
         assert str(e.value) == error_msg
