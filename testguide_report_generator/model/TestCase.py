@@ -20,14 +20,14 @@ including:
     Verdict
 """
 import errno
-from enum import Enum
 import logging
 import os
-from typing import List, Union
-
+import re
+from enum import Enum
 from testguide_report_generator.util.Json2AtxRepr import Json2AtxRepr
 from testguide_report_generator.util.File import get_md5_hash_from_file
 from testguide_report_generator.util.ValidityChecks import check_string_length, validate_new_teststep
+from typing import List, Union
 
 
 class Verdict(Enum):
@@ -156,6 +156,12 @@ class Constant(Json2AtxRepr):
         :param value: Constant value
         :type value: str
         """
+        pattern = re.compile("^[a-zA-Z]([a-zA-Z0-9]|_[a-zA-Z0-9])*_?$")
+        if not pattern.match(key):
+            raise ValueError(
+                "Constant keys need to be structured following this pattern: [a-zA-Z]([a-zA-Z0-9]|_[a-zA-Z0-9])*_?$"
+            )
+        check_string_length(key, 1, 128, "Constant", "key")
         self.__key = key
         self.__value = value
 
