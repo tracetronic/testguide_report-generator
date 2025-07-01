@@ -27,14 +27,14 @@ from typing import List, Union
 
 from testguide_report_generator.util.Json2AtxRepr import Json2AtxRepr
 from testguide_report_generator.util.File import get_md5_hash_from_file
-from testguide_report_generator.util.ValidityChecks import check_name_length, gen_error_msg, \
-    validate_new_teststep
+from testguide_report_generator.util.ValidityChecks import check_string_length, validate_new_teststep
 
 
 class Verdict(Enum):
     """
     ATX-Verdicts.
     """
+
     NONE = 1
     PASSED = 2
     INCONCLUSIVE = 3
@@ -46,6 +46,7 @@ class TestStepArtifactType(Enum):
     """
     Possible types of artifacts attached to test steps
     """
+
     __test__ = False  # pytest ignore
 
     IMAGE = 1
@@ -107,6 +108,7 @@ class Direction(Enum):
     """
     Parameter directions.
     """
+
     IN = 1
     OUT = 2
     INOUT = 3
@@ -136,11 +138,7 @@ class Parameter(Json2AtxRepr):
         """
         :see: :class:`Json2AtxRepr<testguide_report_generator.Json2AtxRepr>`
         """
-        result = {
-                 "name": self.__name,
-                 "value": self.__value,
-                 "direction": self.__direction.name
-            }
+        result = {"name": self.__name, "value": self.__value, "direction": self.__direction.name}
         return result
 
 
@@ -165,10 +163,7 @@ class Constant(Json2AtxRepr):
         """
         :see: :class:`Json2AtxRepr<testguide_report_generator.Json2AtxRepr>`
         """
-        result = {
-                 "key": self.__key,
-                 "value": self.__value
-            }
+        result = {"key": self.__key, "value": self.__value}
         return result
 
 
@@ -193,10 +188,7 @@ class Attribute(Json2AtxRepr):
         """
         :see: :class:`Json2AtxRepr<testguide_report_generator.Json2AtxRepr>`
         """
-        result = {
-                 "key": self.__key,
-                 "value": self.__value
-            }
+        result = {"key": self.__key, "value": self.__value}
         return result
 
 
@@ -215,11 +207,9 @@ class Review(Json2AtxRepr):
         :param timestamp: UTC timestamp in seconds
         :rtype timestamp: int
         """
-        if not 1 <= len(comment) <= 10000:
-            raise ValueError("Comment length must be between 1 and 10000 characters.")
 
-        if len(author) > 512:
-            raise ValueError("Author length cannot exceed 512 characters.")
+        check_string_length(comment, 1, 10000, "Review", "comment")
+        check_string_length(author, 0, 512, "Review", "author")
 
         self.__comment = comment
         self.__author = author
@@ -257,8 +247,7 @@ class Review(Json2AtxRepr):
         :return: this object
         :rtype: Review
         """
-        if len(summary) > 512:
-            raise ValueError("Summary length cannot exceed 512 characters.")
+        check_string_length(summary, 0, 512, "Review", "summary")
         self.__summary = summary
         return self
 
@@ -271,19 +260,21 @@ class Review(Json2AtxRepr):
         :return: this object
         :rtype: Review
         """
+        check_string_length(defect, 0, 64, "Review", "defect")
         self.__defect = defect
         return self
 
-    def set_defect_priority(self, priority: str):
+    def set_defect_priority(self, defectPriority: str):
         """
         Set the defect priority.
 
-        :param priority: Review priority
+        :param defectPriority: Review priority
         :type priority: str
         :return: this object
         :rtype: Review
         """
-        self.__defect_priority = priority
+        check_string_length(defectPriority, 0, 64, "Review", "defectPriority")
+        self.__defect_priority = defectPriority
         return self
 
     def add_tickets(self, tickets: List[str]):
@@ -296,8 +287,7 @@ class Review(Json2AtxRepr):
         :rtype: Review
         """
         for ticket in tickets:
-            if len(ticket) > 512:
-                raise ValueError("Ticket length exceeds the maximum allowed (512 characters).")
+            check_string_length(ticket, 0, 512, "Review", "ticket")
         self.__tickets.extend(tickets)
         return self
 
@@ -313,16 +303,17 @@ class Review(Json2AtxRepr):
         self.__invalid_run = invalid
         return self
 
-    def set_custom_evaluation(self, evaluation: str):
+    def set_custom_evaluation(self, customEvaluation: str):
         """
         Set a custom evaluation message.
 
-        :param evaluation: Review evaluation
-        :type evaluation: str
+        :param customEvaluation: Review evaluation
+        :type customEvaluation: str
         :return: this object
         :rtype: Review
         """
-        self.__custom_evaluation = evaluation
+        check_string_length(customEvaluation, 0, 64, "Review", "customEvaluation")
+        self.__custom_evaluation = customEvaluation
         return self
 
     def add_tags(self, tags: List[str]):
@@ -346,8 +337,7 @@ class Review(Json2AtxRepr):
         :rtype: Review
         """
         for contact in contacts:
-            if len(contact) > 255:
-                raise ValueError("Contact length exceeds the maximum allowed (255 characters).")
+            check_string_length(contact, 0, 255, "Review", "contact")
         self.__contacts.extend(contacts)
         return self
 
@@ -367,7 +357,7 @@ class Review(Json2AtxRepr):
             "invalidRun": self.__invalid_run,
             "customEvaluation": self.__custom_evaluation,
             "tags": self.__tags,
-            "contacts": self.__contacts
+            "contacts": self.__contacts,
         }
         if self.__verdict:
             result["verdict"] = self.__verdict.name
@@ -423,7 +413,7 @@ class TestStep(Json2AtxRepr):
 
     __test__ = False  # pytest ignore
 
-    def __init__(self, name: str, verdict: Verdict, expected_result: str = ''):
+    def __init__(self, name: str, verdict: Verdict, expected_result: str = ""):
         """
         Constructor
 
@@ -435,14 +425,14 @@ class TestStep(Json2AtxRepr):
         :type expected_result: str
         :raises TypeError: argument 'verdict' is not of type Verdict
         """
-        self.__name = check_name_length(name, gen_error_msg("TestStep", name))
+        self.__name = check_string_length(name, 1, 255, "TestStep", "name")
 
         if not isinstance(verdict, Verdict):
             raise TypeError("Argument 'verdict' must be of type 'Verdict'.")
 
         self.__description: str | None = None
         self.__verdict = verdict
-        self.__expected_result = expected_result
+        self.__expected_result = check_string_length(expected_result, 0, 1024, "TestStep", "expected_result")
         self.__artifacts: list[Artifact] = []
 
     def set_description(self, desc: str):
@@ -478,8 +468,9 @@ class TestStep(Json2AtxRepr):
         except OSError as error:
             if not ignore_on_error:
                 raise error
-            logging.warning(f"Artifact path '{file_path}' for teststep '{self.__name}' is invalid, "
-                            f"will be ignored!")
+            logging.warning(
+                f"Artifact path '{file_path}' for teststep '{self.__name}' is invalid, " f"will be ignored!"
+            )
         return self
 
     def get_artifacts(self):
@@ -496,13 +487,13 @@ class TestStep(Json2AtxRepr):
         :see: :class:`Json2AtxRepr<testguide_report_generator.Json2AtxRepr>`
         """
         result = {
-                 "@type": "teststep",
-                 "name": self.__name,
-                 "description": self.__description,
-                 "verdict": self.__verdict.name,
-                 "expected_result": self.__expected_result,
-                 "testStepArtifacts": [each.create_json_repr() for each in self.__artifacts]
-            }
+            "@type": "teststep",
+            "name": self.__name,
+            "description": self.__description,
+            "verdict": self.__verdict.name,
+            "expected_result": self.__expected_result,
+            "testStepArtifacts": [each.create_json_repr() for each in self.__artifacts],
+        }
         return result
 
 
@@ -521,9 +512,9 @@ class TestStepFolder(Json2AtxRepr):
         :param name: TestStepFolder name
         :type name: str
         """
-        self.__name = check_name_length(name, gen_error_msg("TestStepFolder", name))
+        self.__name = check_string_length(name, 1, 255, "TestStepFolder", "name")
         self.__description: str | None = None
-        self.__teststeps: list[Union[TestStep, TestStepFolder]] =  []
+        self.__teststeps: list[Union[TestStep, TestStepFolder]] = []
 
     def set_description(self, desc: str):
         """
@@ -565,11 +556,11 @@ class TestStepFolder(Json2AtxRepr):
         :see: :class:`Json2AtxRepr<testguide_report_generator.Json2AtxRepr>`
         """
         result = {
-                 "@type": "teststepfolder",
-                 "name": self.__name,
-                 "description": self.__description,
-                 "teststeps": [each.create_json_repr() for each in self.__teststeps],
-            }
+            "@type": "teststepfolder",
+            "name": self.__name,
+            "description": self.__description,
+            "teststeps": [each.create_json_repr() for each in self.__teststeps],
+        }
         return result
 
 
@@ -595,7 +586,7 @@ class TestCase(Json2AtxRepr):
         :raises: TypeError, if the argument 'verdict' is not of type Verdict
         """
 
-        self.__name = check_name_length(name, gen_error_msg("TestCase", name))
+        self.__name = check_string_length(name, 1, 120, "TestCase", "name")
         self.__timestamp = timestamp
 
         if not isinstance(verdict, Verdict):
@@ -643,20 +634,20 @@ class TestCase(Json2AtxRepr):
         self.__execution_time = exec_time
         return self
 
-    def add_parameter_set(self, name: str, params: List[Parameter]):
+    def add_parameter_set(self, paramSet: str, params: List[Parameter]):
         """
         Set the parameter set.
 
-        :param name: name of the parameter set
-        :type name: str or None
+        :param paramSet: name of the parameter set
+        :type paramSet: str or None
         :param params: list of Parameter
         :type params: list
         :raises TypeError: the 'params' parameter has the wrong type
         :return: this object
         :rtype: TestCase
         """
-
-        self.__param_set = name
+        check_string_length(paramSet, 0, 1024, "TestCase", "paramSet")
+        self.__param_set = paramSet
 
         if not all(isinstance(param, Parameter) for param in params):
             raise TypeError("Argument params must be of type list from Parameter.")
@@ -791,8 +782,9 @@ class TestCase(Json2AtxRepr):
         except OSError as error:
             if not ignore_on_error:
                 raise error
-            logging.warning(f"Artifact path '{artifact_file_path}' for testcase"
-                            f" '{self.__name}' is invalid, will be ignored!")
+            logging.warning(
+                f"Artifact path '{artifact_file_path}' for testcase" f" '{self.__name}' is invalid, will be ignored!"
+            )
         return self
 
     def get_artifacts(self):
@@ -828,11 +820,11 @@ class TestCase(Json2AtxRepr):
         :see: :class:`Json2AtxRepr<testguide_report_generator.Json2AtxRepr>`
         """
         result = {
-            '@type': "testcase",
-            'name': self.__name,
-            'verdict': self.__verdict.name,
-            'description': self.__description,
-            'timestamp': self.__timestamp,
+            "@type": "testcase",
+            "name": self.__name,
+            "verdict": self.__verdict.name,
+            "description": self.__description,
+            "timestamp": self.__timestamp,
             "executionTime": self.__execution_time,
             "parameters": [each.create_json_repr() for each in self.__parameters],
             "paramSet": self.__param_set,
@@ -843,7 +835,7 @@ class TestCase(Json2AtxRepr):
             "constants": [each.create_json_repr() for each in self.__constants],
             "environments": [],
             "artifacts": [each.create_json_repr() for each in self.__artifacts],
-            }
+        }
         if self.__review:
             result["review"] = self.__review.create_json_repr()
         return result

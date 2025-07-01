@@ -6,9 +6,15 @@ import pytest
 import json
 from unittest.mock import patch
 
-from testguide_report_generator.model.TestCase import (TestCase, TestStep, Verdict, Artifact, TestStepArtifact,
-                                                       TestStepArtifactType, Review)
-from testguide_report_generator.util.ValidityChecks import gen_error_msg
+from testguide_report_generator.model.TestCase import (
+    TestCase,
+    TestStep,
+    Verdict,
+    Artifact,
+    TestStepArtifact,
+    TestStepArtifactType,
+    Review,
+)
 
 
 class TestArtifact:
@@ -50,9 +56,9 @@ class TestTestStep:
         json_str = json.dumps(teststep.create_json_repr())
 
         assert (
-                '{"@type": "teststep", "name": "ts", "description": null, '
-                '"verdict": "NONE", "expected_result": "undefined", "testStepArtifacts": '
-                '[{"path": "hash/artifact.txt", "artifactType": "IMAGE"}]}' == json_str
+            '{"@type": "teststep", "name": "ts", "description": null, '
+            '"verdict": "NONE", "expected_result": "undefined", "testStepArtifacts": '
+            '[{"path": "hash/artifact.txt", "artifactType": "IMAGE"}]}' == json_str
         )
 
     def test_invalid_verdict(self):
@@ -79,12 +85,12 @@ class TestTestStepFolder:
         json_str = json.dumps(tsf.create_json_repr())
 
         assert (
-                '{"@type": "teststepfolder", "name": "tsf", "description": "abc", '
-                '"teststeps": ['
-                '{"@type": "teststep", "name": "ts", "description": null, "verdict": "NONE", "expected_result": '
-                '"undefined", "testStepArtifacts": []},'
-                ' {"@type": "teststep", "name": "ts2", "description": "teststep2", "verdict": "ERROR",'
-                ' "expected_result": "err", "testStepArtifacts": []}]}' == json_str
+            '{"@type": "teststepfolder", "name": "tsf", "description": "abc", '
+            '"teststeps": ['
+            '{"@type": "teststep", "name": "ts", "description": null, "verdict": "NONE", "expected_result": '
+            '"undefined", "testStepArtifacts": []},'
+            ' {"@type": "teststep", "name": "ts2", "description": "teststep2", "verdict": "ERROR",'
+            ' "expected_result": "err", "testStepArtifacts": []}]}' == json_str
         )
 
     def test_add_teststep_error(self, teststep_folder):
@@ -138,10 +144,13 @@ class TestTestCase:
     @pytest.mark.parametrize("input_name", ["", "x" * 121])
     def test_value_error(self, input_name):
         verdict = Verdict.FAILED
+        error_msg = (
+            f"The TestCase:name must have a length between 1 and 120 characters. Was {len(input_name)} -> {input_name}"
+        )
         with pytest.raises(ValueError) as e:
             TestCase(input_name, 0, verdict)
 
-        assert str(e.value) == gen_error_msg("TestCase", input_name)
+        assert str(e.value) == error_msg
 
     def test_invalid_verdict(self):
         with pytest.raises(TypeError) as e:
@@ -227,50 +236,70 @@ class TestAttribute:
         json_str = json.dumps(attribute.create_json_repr())
         assert '{"key": "an", "value": "attribute"}' == json_str
 
+
 class TestReview:
     def test_correct_json_repr(self, review):
         json_str = json.dumps(review.create_json_repr())
-        assert ('{"comment": "comment", "timestamp": 1670254005, "verdict": "PASSED", "author": "chucknorris", '
-                '"summary": null, "defect": null, "defectPriority": null, "tickets": [], "invalidRun": false, '
-                '"customEvaluation": null, "tags": [], "contacts": []}') == json_str
+        assert (
+            '{"comment": "comment", "timestamp": 1670254005, "verdict": "PASSED", "author": "chucknorris", '
+            '"summary": null, "defect": null, "defectPriority": null, "tickets": [], "invalidRun": false, '
+            '"customEvaluation": null, "tags": [], "contacts": []}'
+        ) == json_str
 
     def test_default(self, review):
         review = Review("Review-Comment", "Reviewer", 1423576765001)
         json_str = json.dumps(review.create_json_repr())
-        assert ('{"comment": "Review-Comment", "timestamp": 1423576765001, "verdict": "PASSED", "author": "Reviewer", '
-                '"summary": null, "defect": null, "defectPriority": null, "tickets": [], "invalidRun": false, '
-                '"customEvaluation": null, "tags": [], "contacts": []}') == json_str
+        assert (
+            '{"comment": "Review-Comment", "timestamp": 1423576765001, "verdict": "PASSED", "author": "Reviewer", '
+            '"summary": null, "defect": null, "defectPriority": null, "tickets": [], "invalidRun": false, '
+            '"customEvaluation": null, "tags": [], "contacts": []}'
+        ) == json_str
 
     @pytest.mark.parametrize(
-        "comment, expected_error",
+        "comment, error_msg",
         [
-            ("x" * 10001, "Comment length must be between 1 and 10000 characters."),
-            ("x" * 0, "Comment length must be between 1 and 10000 characters."),
-        ]
+            (
+                "x" * 10001,
+                f"The Review:comment must have a length between 1 and 10000 characters. Was 10001 -> {"x" * 10001}",
+            ),
+            (
+                "x" * 0,
+                "The Review:comment must have a length between 1 and 10000 characters. Was 0 -> ",
+            ),
+        ],
     )
-    def test_comment_error(self, comment, expected_error):
-        with pytest.raises(ValueError, match=expected_error):
+    def test_comment_error(self, comment, error_msg):
+        with pytest.raises(ValueError) as e:
             Review(comment, "Reviewer", 1423576765001)
+        assert str(e.value) == error_msg
 
     def test_author_error(self, review):
-        with pytest.raises(ValueError, match="Author length cannot exceed 512 characters."):
+        error_msg = f"The Review:author must have a length between 0 and 512 characters. Was 513 -> {"x" * 513}"
+        with pytest.raises(ValueError) as e:
             Review("Review-Comment", "x" * 513, 1423576765001)
+        assert str(e.value) == error_msg
 
     def test_set_verdict_error(self, review):
         with pytest.raises(TypeError, match="Argument 'verdict' must be of type 'Verdict'."):
             review.set_verdict("invalid_verdict")
 
     def test_set_summary_error(self, review):
-        with pytest.raises(ValueError, match="Summary length cannot exceed 512 characters."):
+        error_msg = f"The Review:summary must have a length between 0 and 512 characters. Was 513 -> {"x" * 513}"
+        with pytest.raises(ValueError) as e:
             review.set_summary("x" * 513)
+        assert str(e.value) == error_msg
 
     def test_add_tickets_error(self, review):
-        with pytest.raises(ValueError, match=r"Ticket length exceeds the maximum allowed \(512 characters\)."):
+        error_msg = f"The Review:ticket must have a length between 0 and 512 characters. Was 513 -> {"x" * 513}"
+        with pytest.raises(ValueError) as e:
             review.add_tickets(["x" * 513])
+        assert str(e.value) == error_msg
 
     def test_add_contacts_error(self, review):
-        with pytest.raises(ValueError, match=r"Contact length exceeds the maximum allowed \(255 characters\)."):
+        error_msg = f"The Review:contact must have a length between 0 and 255 characters. Was 256 -> {"x" * 256}"
+        with pytest.raises(ValueError) as e:
             review.add_contacts(["x" * 256])
+        assert str(e.value) == error_msg
 
     def test_full_review_object(self, review):
         review.set_verdict(Verdict.PASSED)

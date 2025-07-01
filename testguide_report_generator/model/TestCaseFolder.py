@@ -11,8 +11,7 @@ This module contains the TestCaseFolder class.
 from typing_extensions import Self
 from testguide_report_generator.model.TestCase import TestCase
 from testguide_report_generator.util.Json2AtxRepr import Json2AtxRepr
-from testguide_report_generator.util.ValidityChecks import check_name_length, gen_error_msg, \
-    validate_testcase
+from testguide_report_generator.util.ValidityChecks import check_string_length, validate_testcase
 
 
 class TestCaseFolder(Json2AtxRepr):
@@ -32,7 +31,7 @@ class TestCaseFolder(Json2AtxRepr):
         :param name: name of the testcase folder
         :type name: str
         """
-        self.__name = check_name_length(name, gen_error_msg("TestCaseFolder", name))
+        self.__name = check_string_length(name, 1, 120, "TestCaseFolder", "name")
         self.__testcases: list[TestCase | TestCaseFolder] = []
 
     def add_testcase(self, testcase: TestCase | Self) -> Self:
@@ -62,8 +61,8 @@ class TestCaseFolder(Json2AtxRepr):
         :see: :class:`Json2AtxRepr<testguide_report_generator.Json2AtxRepr>`
         """
         result = {
-            '@type': "testcasefolder",
-            'name': self.__name,
+            "@type": "testcasefolder",
+            "name": self.__name,
             "testcases": [each.create_json_repr() for each in self.__testcases],
-            }
+        }
         return result

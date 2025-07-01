@@ -7,7 +7,7 @@ from testguide_report_generator.model.TestCase import TestCase, Verdict
 from testguide_report_generator.model.TestSuite import TestSuite
 import json
 
-NAME_ERROR_MSG = "The name of the TestSuite must have a length between 1-120 characters."
+NAME_ERROR_MSG = "The TestSuite:name must have a length between 1 and 120 characters."
 
 
 def test_empty(testsuite):
@@ -38,7 +38,7 @@ def test_value_error(input_name):
     with pytest.raises(ValueError) as e:
         TestSuite(input_name, 0)
 
-    assert str(e.value) == NAME_ERROR_MSG
+    assert str(e.value) == NAME_ERROR_MSG + f" Was {len(input_name)} -> {input_name}"
 
 
 @pytest.mark.parametrize("input_name", ["a", "x" * 120])

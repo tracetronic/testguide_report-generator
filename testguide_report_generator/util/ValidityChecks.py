@@ -11,26 +11,7 @@ setup of the testsuite.
 """
 
 
-def check_name_length(name, error_msg):
-    """
-    Checks whether the given name complies to length restrictions according to the schema.
-
-    :param name: name
-    :type name: str
-    :param error_msg: the error message pertaining to the error thrown, if 'name' is invalid
-    :type error_msg: str
-    :raises: ValueError, if 'name' length is invalid
-    :return: name, if check was successful
-    :rtype: str
-    """
-
-    if len(name) not in range(1, 121):
-        raise ValueError(error_msg)
-
-    return name
-
-
-def gen_error_msg(obj_type, name):
+def check_string_length(value: str, min: int, max: int, obj_type: str, property: str):
     """
     Dynamic error message.
 
@@ -41,7 +22,11 @@ def gen_error_msg(obj_type, name):
     :return: error message
     :rtype: str
     """
-    return f"The name of the {obj_type} must have a length between 1-120 characters. Name was: {name}"
+    if len(value) not in range(min, max + 1):
+        raise ValueError(
+            f"The {obj_type}:{property} must have a length between {min} and {max} characters. Was {len(value)} -> {value}"
+        )
+    return value
 
 
 def validate_new_teststep(teststep, stepclass, folderclass):

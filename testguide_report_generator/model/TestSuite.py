@@ -13,7 +13,7 @@ from typing import Union
 from testguide_report_generator.model.TestCase import TestCase
 from testguide_report_generator.model.TestCaseFolder import TestCaseFolder
 from testguide_report_generator.util.Json2AtxRepr import Json2AtxRepr
-from testguide_report_generator.util.ValidityChecks import check_name_length, validate_testcase
+from testguide_report_generator.util.ValidityChecks import check_string_length, validate_testcase
 
 
 class TestSuite(Json2AtxRepr):
@@ -24,7 +24,6 @@ class TestSuite(Json2AtxRepr):
     """
 
     __test__ = False  # pytest ignore
-    NAME_ERROR_MSG = "The name of the TestSuite must have a length between 1-120 characters."
 
     def __init__(self, name: str, timestamp: int):
         """
@@ -35,7 +34,7 @@ class TestSuite(Json2AtxRepr):
         :param timestamp: timestamp in milliseconds
         :type timestamp: int
         """
-        self.__name = check_name_length(name, self.NAME_ERROR_MSG)
+        self.__name = check_string_length(name, 1, 120, "TestSuite", "name")
         self.__timestamp = timestamp
         self.__testcases: list[Union[TestCase, TestCaseFolder]] = []
 
