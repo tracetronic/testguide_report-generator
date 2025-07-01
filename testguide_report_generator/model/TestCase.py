@@ -24,10 +24,10 @@ import logging
 import os
 import re
 from enum import Enum
+from typing import List, Union
 from testguide_report_generator.util.Json2AtxRepr import Json2AtxRepr
 from testguide_report_generator.util.File import get_md5_hash_from_file
 from testguide_report_generator.util.ValidityChecks import check_string_length, validate_new_teststep
-from typing import List, Union
 
 
 class Verdict(Enum):
