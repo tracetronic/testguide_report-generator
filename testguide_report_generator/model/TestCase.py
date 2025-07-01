@@ -156,11 +156,10 @@ class Constant(Json2AtxRepr):
         :param value: Constant value
         :type value: str
         """
-        pattern = re.compile("^[a-zA-Z]([a-zA-Z0-9]|_[a-zA-Z0-9])*_?$")
+        str_pattern = "^[a-zA-Z]([a-zA-Z0-9]|_[a-zA-Z0-9])*_?$"
+        pattern = re.compile(str_pattern)
         if not pattern.match(key):
-            raise ValueError(
-                "Constant keys need to be structured following this pattern: [a-zA-Z]([a-zA-Z0-9]|_[a-zA-Z0-9])*_?$"
-            )
+            raise ValueError(f"Constant keys need to be structured following this pattern: {str_pattern}")
         check_string_length(key, 1, 128, "Constant", "key")
         self.__key = key
         self.__value = value
@@ -187,6 +186,11 @@ class Attribute(Json2AtxRepr):
         :param value: Attribute value
         :type value: str
         """
+        str_pattern = "^[-.0-9:A-Z_a-z\u00b7\u00c0-\u00d6\u00d8-\u00f6\u00f8-\u037d\u037f-\u1fff\u200c-\u200d\u203f\u2040\u2070-\u218f\u2c00-\u2fef\u3001-\ud7ff\uf900-\ufdcf\ufdf0-\ufffd]+$"
+        pattern = re.compile(str_pattern)
+        if not pattern.match(key):
+            raise ValueError(f"Attribute keys need to be structured following this pattern: {str_pattern}")
+        check_string_length(key, 1, 255, "Attribute", "key")
         self.__key = key
         self.__value = value
 
