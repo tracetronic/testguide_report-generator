@@ -264,17 +264,17 @@ class Review(Json2AtxRepr):
         self.__defect = defect
         return self
 
-    def set_defect_priority(self, defectPriority: str):
+    def set_defect_priority(self, defect_priority: str):
         """
         Set the defect priority.
 
-        :param defectPriority: Review priority
+        :param defect_priority: Review priority
         :type priority: str
         :return: this object
         :rtype: Review
         """
-        check_string_length(defectPriority, 0, 64, "Review", "defectPriority")
-        self.__defect_priority = defectPriority
+        check_string_length(defect_priority, 0, 64, "Review", "defectPriority")
+        self.__defect_priority = defect_priority
         return self
 
     def add_tickets(self, tickets: List[str]):
@@ -303,17 +303,17 @@ class Review(Json2AtxRepr):
         self.__invalid_run = invalid
         return self
 
-    def set_custom_evaluation(self, customEvaluation: str):
+    def set_custom_evaluation(self, custom_evaluation: str):
         """
         Set a custom evaluation message.
 
-        :param customEvaluation: Review evaluation
-        :type customEvaluation: str
+        :param custom_evaluation: Review evaluation
+        :type custom_evaluation: str
         :return: this object
         :rtype: Review
         """
-        check_string_length(customEvaluation, 0, 64, "Review", "customEvaluation")
-        self.__custom_evaluation = customEvaluation
+        check_string_length(custom_evaluation, 0, 64, "Review", "customEvaluation")
+        self.__custom_evaluation = custom_evaluation
         return self
 
     def add_tags(self, tags: List[str]):
@@ -634,20 +634,20 @@ class TestCase(Json2AtxRepr):
         self.__execution_time = exec_time
         return self
 
-    def add_parameter_set(self, paramSet: str, params: List[Parameter]):
+    def add_parameter_set(self, param_set: str, params: List[Parameter]):
         """
         Set the parameter set.
 
-        :param paramSet: name of the parameter set
-        :type paramSet: str or None
+        :param param_set: name of the parameter set
+        :type param_set: str or None
         :param params: list of Parameter
         :type params: list
         :raises TypeError: the 'params' parameter has the wrong type
         :return: this object
         :rtype: TestCase
         """
-        check_string_length(paramSet, 0, 1024, "TestCase", "paramSet")
-        self.__param_set = paramSet
+        check_string_length(param_set, 0, 1024, "TestCase", "paramSet")
+        self.__param_set = param_set
 
         if not all(isinstance(param, Parameter) for param in params):
             raise TypeError("Argument params must be of type list from Parameter.")

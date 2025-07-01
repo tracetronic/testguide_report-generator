@@ -11,7 +11,7 @@ setup of the testsuite.
 """
 
 
-def check_string_length(value: str, min: int, max: int, obj_type: str, property: str):
+def check_string_length(value: str, min_len: int, max_len: int, type: str, prop: str):
     """
     Dynamic error message.
 
@@ -22,10 +22,11 @@ def check_string_length(value: str, min: int, max: int, obj_type: str, property:
     :return: error message
     :rtype: str
     """
-    if len(value) not in range(min, max + 1):
-        raise ValueError(
-            f"The {obj_type}:{property} must have a length between {min} and {max} characters. Was {len(value)} -> {value}"
-        )
+    error_msg = (
+        f"The {type}:{prop} must have a length between {min_len} and {max_len} characters. Was {len(value)} -> {value}"
+    )
+    if len(value) not in range(min_len, max_len + 1):
+        raise ValueError(error_msg)
     return value
 
 
