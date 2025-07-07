@@ -147,6 +147,8 @@ class Constant(Json2AtxRepr):
     ATX-Constant
     """
 
+    PATTERN = "^[a-zA-Z]([a-zA-Z0-9]|_[a-zA-Z0-9])*_?$"
+
     def __init__(self, key: str, value: str):
         """
         Constructor
@@ -156,10 +158,9 @@ class Constant(Json2AtxRepr):
         :param value: Constant value
         :type value: str
         """
-        str_pattern = "^[a-zA-Z]([a-zA-Z0-9]|_[a-zA-Z0-9])*_?$"
-        pattern = re.compile(str_pattern)
+        pattern = re.compile(Constant.PATTERN)
         if not pattern.match(key):
-            raise ValueError(f"Constant keys need to be structured following this pattern: {str_pattern}")
+            raise ValueError(f"Constant keys need to be structured following this pattern: {Constant.PATTERN}")
         check_string_length(key, 1, 128, "Constant", "key")
         self.__key = key
         self.__value = value
@@ -177,6 +178,11 @@ class Attribute(Json2AtxRepr):
     ATX-Attribute.
     """
 
+    PATTERN = (
+        "^[-.0-9:A-Z_a-z\u00b7\u00c0-\u00d6\u00d8-\u00f6\u00f8-\u037d\u037f-\u1fff\u200c-\u200d"
+        "\u203f\u2040\u2070-\u218f\u2c00-\u2fef\u3001-\ud7ff\uf900-\ufdcf\ufdf0-\ufffd]+$"
+    )
+
     def __init__(self, key: str, value: str):
         """
         Constructor
@@ -186,13 +192,9 @@ class Attribute(Json2AtxRepr):
         :param value: Attribute value
         :type value: str
         """
-        str_pattern = (
-            "^[-.0-9:A-Z_a-z\u00b7\u00c0-\u00d6\u00d8-\u00f6\u00f8-\u037d\u037f-\u1fff\u200c-\u200d"
-            "\u203f\u2040\u2070-\u218f\u2c00-\u2fef\u3001-\ud7ff\uf900-\ufdcf\ufdf0-\ufffd]+$"
-        )
-        pattern = re.compile(str_pattern)
+        pattern = re.compile(Attribute.PATTERN)
         if not pattern.match(key):
-            raise ValueError(f"Attribute keys need to be structured following this pattern: {str_pattern}")
+            raise ValueError(f"Attribute keys need to be structured following this pattern: {Attribute.PATTERN}")
         check_string_length(key, 1, 255, "Attribute", "key")
         self.__key = key
         self.__value = value

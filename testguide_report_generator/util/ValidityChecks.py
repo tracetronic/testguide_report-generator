@@ -13,19 +13,19 @@ setup of the testsuite.
 
 def check_string_length(value: str, min_len: int, max_len: int, obj: str, prop: str):
     """
-    Dynamic error message.
-    :param value: value of the property
+    Checks if the given string property of an object has a length within the specified bounds.
+    :param value: string value to check
     :type value: str
-    :param min_len: min length of the property
+    :param min_len: minimum allowed length (inclusive)
     :type min_len: int
-    :param max_len: min length of the property
+    :param max_len: maximum allowed length (inclusive)
     :type max_len: int
-    :param obj: object to which this error message belongs to.
+    :param obj: name of the object containing the property
     :type obj: str
-    :param prop: property to which this error message belongs to.
+    :param prop: name of the property being checked
     :type prop: str
-
-    :return: error message
+    :raises ValueError: if the string length is not within the specified bounds.
+    :return: The original string value if valid
     :rtype: str
     """
     error_msg = (

@@ -131,10 +131,7 @@ class TestTestCase:
         with pytest.raises(ValueError) as error:
             testcase.add_constant(Constant("", ""))
 
-        assert (
-            str(error.value) == "Constant keys need to be structured following this pattern: "
-            "^[a-zA-Z]([a-zA-Z0-9]|_[a-zA-Z0-9])*_?$"
-        )
+        assert str(error.value) == f"Constant keys need to be structured following this pattern: {Constant.PATTERN}"
 
     def test_add_long_string_constant_error(self, testcase):
         with pytest.raises(ValueError) as error:
@@ -149,11 +146,7 @@ class TestTestCase:
         with pytest.raises(ValueError) as error:
             testcase.add_attribute_pair(Attribute("", ""))
 
-        assert (
-            str(error.value) == "Attribute keys need to be structured following this pattern: "
-            "^[-.0-9:A-Z_a-z\u00b7\u00c0-\u00d6\u00d8-\u00f6\u00f8-\u037d\u037f-\u1fff\u200c-\u200d"
-            "\u203f\u2040\u2070-\u218f\u2c00-\u2fef\u3001-\ud7ff\uf900-\ufdcf\ufdf0-\ufffd]+$"
-        )
+        assert str(error.value) == f"Attribute keys need to be structured following this pattern: {Attribute.PATTERN}"
 
     def test_add_long_string_attribute_error(self, testcase):
         with pytest.raises(ValueError) as error:
