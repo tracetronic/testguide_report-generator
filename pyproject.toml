@@ -16,6 +16,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
 jsonschema = "==4.16.0"
+typing_extensions = "==4.13.2"
 
 [tool.poetry.group.workflow.dependencies]
 toml = "^0.10.2"
