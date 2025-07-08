@@ -154,46 +154,22 @@ more than 255 characters. UNC paths are explicitly considered separately.</p>
 testsuite, are constructed in a valid manner. This guarantees that errors are found early during
 setup of the testsuite.</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="testguide_report_generator.util.ValidityChecks.check_name_length">
-<span class="sig-prename descclassname"><span class="pre">testguide_report_generator.util.ValidityChecks.</span></span><span class="sig-name descname"><span class="pre">check_name_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.util.ValidityChecks.check_name_length" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks whether the given name complies to length restrictions according to the schema.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>str</em>) – name</p></li>
-<li><p><strong>error_msg</strong> (<em>str</em>) – the error message pertaining to the error thrown, if ‘name’ is invalid</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p>ValueError, if ‘name’ length is invalid</p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>name, if check was successful</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="testguide_report_generator.util.ValidityChecks.gen_error_msg">
-<span class="sig-prename descclassname"><span class="pre">testguide_report_generator.util.ValidityChecks.</span></span><span class="sig-name descname"><span class="pre">gen_error_msg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.util.ValidityChecks.gen_error_msg" title="Permalink to this definition">¶</a></dt>
-<dd><p>Dynamic error message.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>obj_type</strong> (<em>str</em>) – type of object to which this error message belongs to.</p></li>
-<li><p><strong>name</strong> (<em>str</em>) – name parameter of the object</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>error message</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="testguide_report_generator.util.ValidityChecks.check_string_length">
+<span class="sig-prename descclassname"><span class="pre">testguide_report_generator.util.ValidityChecks.</span></span><span class="sig-name descname"><span class="pre">check_string_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_len</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_len</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.util.ValidityChecks.check_string_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the given string property of an object has a length within the specified bounds.
+:param value: string value to check
+:type value: str
+:param min_len: minimum allowed length (inclusive)
+:type min_len: int
+:param max_len: maximum allowed length (inclusive)
+:type max_len: int
+:param obj: name of the object containing the property
+:type obj: str
+:param prop: name of the property being checked
+:type prop: str
+:raises ValueError: if the string length is not within the specified bounds.
+:return: The original string value if valid
+:rtype: str</p>
 </dd></dl>
 
 <dl class="py function">

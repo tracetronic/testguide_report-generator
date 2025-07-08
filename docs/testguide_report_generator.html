@@ -52,10 +52,12 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Attribute"><code class="docutils literal notranslate"><span class="pre">Attribute</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Attribute.PATTERN"><code class="docutils literal notranslate"><span class="pre">Attribute.PATTERN</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Attribute.create_json_repr"><code class="docutils literal notranslate"><span class="pre">Attribute.create_json_repr()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Constant"><code class="docutils literal notranslate"><span class="pre">Constant</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Constant.PATTERN"><code class="docutils literal notranslate"><span class="pre">Constant.PATTERN</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Constant.create_json_repr"><code class="docutils literal notranslate"><span class="pre">Constant.create_json_repr()</span></code></a></li>
 </ul>
 </li>
@@ -143,7 +145,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="testguide_report_generator.model.html#module-testguide_report_generator.model.TestSuite">testguide_report_generator.model.TestSuite module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestSuite.TestSuite"><code class="docutils literal notranslate"><span class="pre">TestSuite</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestSuite.TestSuite.NAME_ERROR_MSG"><code class="docutils literal notranslate"><span class="pre">TestSuite.NAME_ERROR_MSG</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestSuite.TestSuite.add_testcase"><code class="docutils literal notranslate"><span class="pre">TestSuite.add_testcase()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestSuite.TestSuite.create_json_repr"><code class="docutils literal notranslate"><span class="pre">TestSuite.create_json_repr()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestSuite.TestSuite.get_testcases"><code class="docutils literal notranslate"><span class="pre">TestSuite.get_testcases()</span></code></a></li>
@@ -177,8 +178,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="testguide_report_generator.util.html#module-testguide_report_generator.util.ValidityChecks">testguide_report_generator.util.ValidityChecks module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.ValidityChecks.check_name_length"><code class="docutils literal notranslate"><span class="pre">check_name_length()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.ValidityChecks.gen_error_msg"><code class="docutils literal notranslate"><span class="pre">gen_error_msg()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.ValidityChecks.check_string_length"><code class="docutils literal notranslate"><span class="pre">check_string_length()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.ValidityChecks.validate_new_teststep"><code class="docutils literal notranslate"><span class="pre">validate_new_teststep()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.ValidityChecks.validate_testcase"><code class="docutils literal notranslate"><span class="pre">validate_testcase()</span></code></a></li>
 </ul>
@@ -279,6 +279,11 @@ please conduct the README.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">testguide_report_generator.</span></span><span class="sig-name descname"><span class="pre">Attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Attribute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="testguide_report_generator.util.html#testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr" title="testguide_report_generator.util.Json2AtxRepr.Json2AtxRepr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Json2AtxRepr</span></code></a></p>
 <p>ATX-Attribute.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="testguide_report_generator.Attribute.PATTERN">
+<span class="sig-name descname"><span class="pre">PATTERN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'^[-.0-9:A-Z_a-z·À-ÖØ-öø-ͽͿ-\u1fff\u200c-\u200d‿⁀⁰-\u218fⰀ-\u2fef、-\ud7ff豈-﷏ﷰ-�]+$'</span></em><a class="headerlink" href="#testguide_report_generator.Attribute.PATTERN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="testguide_report_generator.Attribute.create_json_repr">
 <span class="sig-name descname"><span class="pre">create_json_repr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Attribute.create_json_repr" title="Permalink to this definition">¶</a></dt>
@@ -471,11 +476,11 @@ please conduct the README.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="testguide_report_generator.Review.set_custom_evaluation">
-<span class="sig-name descname"><span class="pre">set_custom_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evaluation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review.set_custom_evaluation" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_custom_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_evaluation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review.set_custom_evaluation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set a custom evaluation message.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>evaluation</strong> (<em>str</em>) – Review evaluation</p>
+<dd class="field-odd"><p><strong>custom_evaluation</strong> (<em>str</em>) – Review evaluation</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>this object</p>
@@ -505,11 +510,11 @@ please conduct the README.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="testguide_report_generator.Review.set_defect_priority">
-<span class="sig-name descname"><span class="pre">set_defect_priority</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review.set_defect_priority" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_defect_priority</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">defect_priority</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.Review.set_defect_priority" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the defect priority.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>priority</strong> (<em>str</em>) – Review priority</p>
+<dd class="field-odd"><p><strong>defect_priority</strong> – Review priority</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>this object</p>
@@ -707,12 +712,12 @@ TestStepFolder was added</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="testguide_report_generator.TestCase.add_parameter_set">
-<span class="sig-name descname"><span class="pre">add_parameter_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Parameter" title="testguide_report_generator.model.TestCase.Parameter"><span class="pre">Parameter</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.add_parameter_set" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_parameter_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_set</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.Parameter" title="testguide_report_generator.model.TestCase.Parameter"><span class="pre">Parameter</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestCase.add_parameter_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameter set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>str</em><em> or </em><em>None</em>) – name of the parameter set</p></li>
+<li><p><strong>param_set</strong> (<em>str</em><em> or </em><em>None</em>) – name of the parameter set</p></li>
 <li><p><strong>params</strong> (<em>list</em>) – list of Parameter</p></li>
 </ul>
 </dd>
@@ -1086,11 +1091,6 @@ compliant.</p>
 <p>ATX-TestSuite. This is the top-level element from which the <cite>.json</cite> report will be generated. A
 testsuite must contain at least one <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code> or
 <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCaseFolder</span></code> to be test.guide compliant</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="testguide_report_generator.TestSuite.NAME_ERROR_MSG">
-<span class="sig-name descname"><span class="pre">NAME_ERROR_MSG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">name</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">TestSuite</span> <span class="pre">must</span> <span class="pre">have</span> <span class="pre">a</span> <span class="pre">length</span> <span class="pre">between</span> <span class="pre">1-120</span> <span class="pre">characters.'</span></em><a class="headerlink" href="#testguide_report_generator.TestSuite.NAME_ERROR_MSG" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="testguide_report_generator.TestSuite.add_testcase">
 <span class="sig-name descname"><span class="pre">add_testcase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">testcase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCase.TestCase" title="testguide_report_generator.model.TestCase.TestCase"><span class="pre">TestCase</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="testguide_report_generator.model.html#testguide_report_generator.model.TestCaseFolder.TestCaseFolder" title="testguide_report_generator.model.TestCaseFolder.TestCaseFolder"><span class="pre">TestCaseFolder</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#testguide_report_generator.TestSuite.add_testcase" title="Permalink to this definition">¶</a></dt>
