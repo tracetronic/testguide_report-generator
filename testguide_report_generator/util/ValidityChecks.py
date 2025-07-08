@@ -11,37 +11,29 @@ setup of the testsuite.
 """
 
 
-def check_name_length(name, error_msg):
+def check_string_length(value: str, min_len: int, max_len: int, obj: str, prop: str):
     """
-    Checks whether the given name complies to length restrictions according to the schema.
-
-    :param name: name
-    :type name: str
-    :param error_msg: the error message pertaining to the error thrown, if 'name' is invalid
-    :type error_msg: str
-    :raises: ValueError, if 'name' length is invalid
-    :return: name, if check was successful
+    Checks if the given string property of an object has a length within the specified bounds.
+    :param value: string value to check
+    :type value: str
+    :param min_len: minimum allowed length (inclusive)
+    :type min_len: int
+    :param max_len: maximum allowed length (inclusive)
+    :type max_len: int
+    :param obj: name of the object containing the property
+    :type obj: str
+    :param prop: name of the property being checked
+    :type prop: str
+    :raises ValueError: if the string length is not within the specified bounds.
+    :return: The original string value if valid
     :rtype: str
     """
-
-    if len(name) not in range(1, 121):
+    error_msg = (
+        f"The {obj}:{prop} must have a length between {min_len} and {max_len} characters. Was {len(value)} -> {value}"
+    )
+    if len(value) not in range(min_len, max_len + 1):
         raise ValueError(error_msg)
-
-    return name
-
-
-def gen_error_msg(obj_type, name):
-    """
-    Dynamic error message.
-
-    :param obj_type: type of object to which this error message belongs to.
-    :type obj_type: str
-    :param name: name parameter of the object
-    :type name: str
-    :return: error message
-    :rtype: str
-    """
-    return f"The name of the {obj_type} must have a length between 1-120 characters. Name was: {name}"
+    return value
 
 
 def validate_new_teststep(teststep, stepclass, folderclass):

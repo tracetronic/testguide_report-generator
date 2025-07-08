@@ -20,7 +20,7 @@ from testguide_report_generator.model.TestCase import (
     Review,
     TestCase,
     TestStepArtifact,
-    TestStepArtifactType
+    TestStepArtifactType,
 )
 from testguide_report_generator.model.TestCaseFolder import TestCaseFolder
 from testguide_report_generator.model.TestSuite import TestSuite
@@ -145,16 +145,16 @@ def review():
 
 @pytest.fixture
 def testcase(
-        artifact_mock_hash,
-        teststep,
-        teststep_2,
-        teststep_folder,
-        parameter,
-        parameter_2,
-        constant,
-        constant_2,
-        attribute,
-        review,
+    artifact_mock_hash,
+    teststep,
+    teststep_2,
+    teststep_folder,
+    parameter,
+    parameter_2,
+    constant,
+    constant_2,
+    attribute,
+    review,
 ):
     testcase = TestCase("testcase_one", 1670248341000, Verdict.PASSED)
 
@@ -162,7 +162,7 @@ def testcase(
     testcase.set_execution_time_in_sec(5)
     testcase.add_parameter_set("myset", [parameter, parameter_2])
     testcase.add_constants([constant, constant_2])
-    testcase.add_constant(Constant("", ""))
+    testcase.add_constant(Constant("key", "value"))
     testcase.add_constant_pair("const_key", "const_val")
     testcase.add_attribute_pair("an", "attribute")
     testcase.add_setup_teststep(teststep)

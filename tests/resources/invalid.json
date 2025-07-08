@@ -14,8 +14,18 @@
       "setupTestSteps": [],
       "executionTestSteps": [],
       "teardownTestSteps": [],
-      "attributes": [],
-      "constants": [],
+      "attributes": [
+        {
+          "key": "",
+          "value": ""
+        }
+      ],
+      "constants": [
+        {
+          "key": "",
+          "value": ""
+        }
+      ],
       "environments": [],
       "artifacts": []
     },

@@ -133,8 +133,8 @@
       "value": "const"
     },
     {
-      "key": "",
-      "value": ""
+      "key": "key",
+      "value": "value"
     },
     {
       "key": "const_key",

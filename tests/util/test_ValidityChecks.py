@@ -4,32 +4,23 @@
 
 import pytest
 
-from testguide_report_generator.util.ValidityChecks import gen_error_msg, check_name_length, validate_new_teststep, \
-    validate_testcase
+from testguide_report_generator.util.ValidityChecks import check_string_length, validate_new_teststep, validate_testcase
 from testguide_report_generator.model.TestCase import TestCase, TestStep, TestStepFolder
 from testguide_report_generator.model.TestCaseFolder import TestCaseFolder
 
 
 @pytest.mark.parametrize("name", ["a", "x" * 120])
-def test_check_name_length(name):
-    assert name == check_name_length(name, "")
+def test_check_string_length(name):
+    assert name == check_string_length(name, 1, 120, "TestCase", "name")
 
 
 @pytest.mark.parametrize("name", ["", "x" * 121])
-def test_check_name_length_error(name):
-    error_msg = "bad name"
+def test_check_string_length_error(name):
+    error_msg = f"The TestCase:name must have a length between 1 and 120 characters. Was {len(name)} -> {name}"
     with pytest.raises(ValueError) as e:
-        check_name_length(name, error_msg)
+        check_string_length(name, 1, 120, "TestCase", "name")
 
     assert str(e.value) == error_msg
-
-
-def test_error_msg():
-    obj_type = "Type"
-    name = "Fred"
-
-    assert "The name of the Type must have a length between 1-120 characters. Name was: Fred" == \
-           gen_error_msg(obj_type, name)
 
 
 def test_teststep_checks(teststep_folder):
