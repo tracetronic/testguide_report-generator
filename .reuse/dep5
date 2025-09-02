@@ -1,8 +1,0 @@
-Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: tracetronic test.guide JSON Generator for Python
-Upstream-Contact: tracetronic GmbH <info@tracetronic.de>
-Source: https://github.com/tracetronic/testguide_report-generator
-
-Files: **/*.json Pipfile* .gitignore **/artifact* **/*.png
-Copyright: 2023-2024 tracetronic GmbH <info@tracetronic.de>
-License: MIT
