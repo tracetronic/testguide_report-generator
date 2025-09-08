@@ -1,0 +1,10 @@
+version = 1
+SPDX-PackageName = "tracetronic test.guide JSON Generator for Python"
+SPDX-PackageSupplier = "tracetronic GmbH <info@tracetronic.de>"
+SPDX-PackageDownloadLocation = "https://github.com/tracetronic/testguide_report-generator"
+
+[[annotations]]
+path = ["**/**.json", "Pipfile**", ".gitignore", "**/artifact**", "**/**.png"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2023-2025 tracetronic GmbH <info@tracetronic.de>"
+SPDX-License-Identifier = "MIT"
