@@ -29,14 +29,6 @@ developed for use in the automotive sector. It significantly facilitates the man
 cross-role cooperation, thereby closing the gap between test execution and test management.
 <br />
 
-**tracetronic test.guide Report Generator** project is part of
-the [Automotive DevOps Platform](https://www.tracetronic.com/products/automotive-devops-platform/) by tracetronic. With
-the **Automotive DevOps Platform**, we go from the big picture to the details and unite all phases of vehicle software
-testing – from planning the test scopes to summarizing the test results. At the same time, continuous monitoring across
-all test phases always provides an overview of all activities – even with several thousand test executions per day and
-in different test environments.<br><br>
-
-
 ## Table of Contents
 
 - [Installation](#installation)
