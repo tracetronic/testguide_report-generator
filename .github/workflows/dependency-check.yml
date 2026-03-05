@@ -37,6 +37,8 @@ jobs:
         run: pipenv install -r requirements.txt
       - name: Install dev dependencies
         run: poetry install --only dev --no-root
+      - name: Ensure pkg_resources is available
+        run: poetry run python -m pip install "setuptools==81.0.0"
       - name: check license compliance against allowlist
         run: |
           poetry run python config/license/check_dependencies.py `
